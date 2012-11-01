@@ -1,0 +1,10 @@
+C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\bin\Debug\runnerManager.exe
+C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\bin\Debug\runnerManager.pdb
+C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\runnerManager.runnerManagerForm.resources
+C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\runnerManager.Properties.Resources.resources
+C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\runnerManager.exe
+C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\runnerManager.pdb
+C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\bin\Debug\runnerManager.exe.config
+C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\GenerateResource.write.1.tlog

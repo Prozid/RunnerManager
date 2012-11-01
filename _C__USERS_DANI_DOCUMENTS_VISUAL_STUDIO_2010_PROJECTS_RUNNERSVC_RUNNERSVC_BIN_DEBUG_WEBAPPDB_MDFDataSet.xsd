@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="_C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet" targetNamespace="http://tempuri.org/_C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet.xsd" xmlns:mstns="http://tempuri.org/_C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet.xsd" xmlns="http://tempuri.org/_C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.runnerManager.Properties.Settings.GlobalReference.Default.C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VistaSimulaciónTableAdapter" GeneratorDataComponentClassName="VistaSimulaciónTableAdapter" Name="VistaSimulación" UserDataComponentName="VistaSimulaciónTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFConnectionString (Settings)" DbObjectName="[C:\USERS\DANI\DOCUMENTS\VISUAL STUDIO 2010\PROJECTS\RUNNERSVC\RUNNERSVC\BIN\DEBUG\WEBAPPDB.MDF].dbo.VistaSimulación" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT nombre, descripcion, fechaCreacion, Estado, [Método Clasificación], [Método Selección], usuario FROM dbo.VistaSimulación</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+              <Mapping SourceColumn="descripcion" DataSetColumn="descripcion" />
+              <Mapping SourceColumn="fechaCreacion" DataSetColumn="fechaCreacion" />
+              <Mapping SourceColumn="Estado" DataSetColumn="Estado" />
+              <Mapping SourceColumn="Método Clasificación" DataSetColumn="Método Clasificación" />
+              <Mapping SourceColumn="Método Selección" DataSetColumn="Método Selección" />
+              <Mapping SourceColumn="usuario" DataSetColumn="usuario" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="_C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="_C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet" msprop:Generator_UserDSName="_C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="VistaSimulación" msprop:Generator_TableClassName="VistaSimulaciónDataTable" msprop:Generator_TableVarName="tableVistaSimulación" msprop:Generator_TablePropName="VistaSimulación" msprop:Generator_RowDeletingName="VistaSimulaciónRowDeleting" msprop:Generator_UserTableName="VistaSimulación" msprop:Generator_RowChangingName="VistaSimulaciónRowChanging" msprop:Generator_RowEvHandlerName="VistaSimulaciónRowChangeEventHandler" msprop:Generator_RowDeletedName="VistaSimulaciónRowDeleted" msprop:Generator_RowEvArgName="VistaSimulaciónRowChangeEvent" msprop:Generator_RowChangedName="VistaSimulaciónRowChanged" msprop:Generator_RowClassName="VistaSimulaciónRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_UserColumnName="descripcion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fechaCreacion" msprop:Generator_ColumnVarNameInTable="columnfechaCreacion" msprop:Generator_ColumnPropNameInRow="fechaCreacion" msprop:Generator_ColumnPropNameInTable="fechaCreacionColumn" msprop:Generator_UserColumnName="fechaCreacion" type="xs:dateTime" />
+              <xs:element name="Estado" msprop:Generator_ColumnVarNameInTable="columnEstado" msprop:Generator_ColumnPropNameInRow="Estado" msprop:Generator_ColumnPropNameInTable="EstadoColumn" msprop:Generator_UserColumnName="Estado">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Método_x0020_Clasificación" msprop:Generator_ColumnVarNameInTable="columnMétodo_Clasificación" msprop:Generator_ColumnPropNameInRow="Método_Clasificación" msprop:Generator_ColumnPropNameInTable="Método_ClasificaciónColumn" msprop:Generator_UserColumnName="Método Clasificación">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Método_x0020_Selección" msprop:Generator_ColumnVarNameInTable="columnMétodo_Selección" msprop:Generator_ColumnPropNameInRow="Método_Selección" msprop:Generator_ColumnPropNameInTable="Método_SelecciónColumn" msprop:Generator_UserColumnName="Método Selección">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="usuario" msprop:Generator_ColumnVarNameInTable="columnusuario" msprop:Generator_ColumnPropNameInRow="usuario" msprop:Generator_ColumnPropNameInTable="usuarioColumn" msprop:Generator_UserColumnName="usuario">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

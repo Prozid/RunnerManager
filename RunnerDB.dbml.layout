@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="RunnerDB">
+  <DataContextMoniker Name="/RunnerDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="efc446f8-778b-4869-b18d-57d6d5225f3e" absoluteBounds="4.625, 2, 2, 1.3862939453125">
+      <DataClassMoniker Name="/RunnerDBDataContext/EstadoHilo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b5869ef8-4da6-4bbc-aca8-97fd1f6c1f9c" absoluteBounds="4.64, 2.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
