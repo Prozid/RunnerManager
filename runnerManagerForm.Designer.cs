@@ -39,9 +39,14 @@
             this.simsState_toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.web_groupBox = new System.Windows.Forms.GroupBox();
             this.run_button = new System.Windows.Forms.Button();
+            this.countSim_label = new System.Windows.Forms.Label();
+            this.simCountLabel_label = new System.Windows.Forms.Label();
             this.thread_groupBox = new System.Windows.Forms.GroupBox();
             this.threadLog_listBox = new System.Windows.Forms.ListBox();
             this.simulacion_groupBox = new System.Windows.Forms.GroupBox();
+            this.SimStates_groupBox = new System.Windows.Forms.GroupBox();
+            this.simStates_comboBox = new System.Windows.Forms.ComboBox();
+            this.changeState_button = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,16 +59,20 @@
             this._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet = new runnerManager._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet();
             this.timerUpdateSimGrid = new System.Windows.Forms.Timer(this.components);
             this.vistaSimulaciónTableAdapter = new runnerManager._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSetTableAdapters.VistaSimulaciónTableAdapter();
-            this.simCountLabel_label = new System.Windows.Forms.Label();
-            this.countSim_label = new System.Windows.Forms.Label();
+            this._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet1 = new runnerManager._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet1();
+            this.estadoSimulacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.estadoSimulacionTableAdapter = new runnerManager._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet1TableAdapters.EstadoSimulacionTableAdapter();
             this.service_groupBox.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.web_groupBox.SuspendLayout();
             this.thread_groupBox.SuspendLayout();
             this.simulacion_groupBox.SuspendLayout();
+            this.SimStates_groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vistaSimulaciónBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estadoSimulacionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // startsvc_button
@@ -138,8 +147,6 @@
             // 
             // web_groupBox
             // 
-            this.web_groupBox.Controls.Add(this.countSim_label);
-            this.web_groupBox.Controls.Add(this.simCountLabel_label);
             this.web_groupBox.Controls.Add(this.run_button);
             this.web_groupBox.Location = new System.Drawing.Point(13, 73);
             this.web_groupBox.Name = "web_groupBox";
@@ -157,6 +164,25 @@
             this.run_button.Text = "Run";
             this.run_button.UseVisualStyleBackColor = true;
             this.run_button.Click += new System.EventHandler(this.run_button_Click);
+            // 
+            // countSim_label
+            // 
+            this.countSim_label.AutoSize = true;
+            this.countSim_label.Location = new System.Drawing.Point(89, 16);
+            this.countSim_label.Name = "countSim_label";
+            this.countSim_label.Size = new System.Drawing.Size(13, 13);
+            this.countSim_label.TabIndex = 2;
+            this.countSim_label.Text = "0";
+            // 
+            // simCountLabel_label
+            // 
+            this.simCountLabel_label.AutoSize = true;
+            this.simCountLabel_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simCountLabel_label.Location = new System.Drawing.Point(6, 16);
+            this.simCountLabel_label.Name = "simCountLabel_label";
+            this.simCountLabel_label.Size = new System.Drawing.Size(77, 13);
+            this.simCountLabel_label.TabIndex = 1;
+            this.simCountLabel_label.Text = "Connections";
             // 
             // thread_groupBox
             // 
@@ -179,6 +205,9 @@
             // 
             // simulacion_groupBox
             // 
+            this.simulacion_groupBox.Controls.Add(this.countSim_label);
+            this.simulacion_groupBox.Controls.Add(this.SimStates_groupBox);
+            this.simulacion_groupBox.Controls.Add(this.simCountLabel_label);
             this.simulacion_groupBox.Controls.Add(this.dataGridView1);
             this.simulacion_groupBox.Location = new System.Drawing.Point(265, 13);
             this.simulacion_groupBox.Name = "simulacion_groupBox";
@@ -186,6 +215,38 @@
             this.simulacion_groupBox.TabIndex = 6;
             this.simulacion_groupBox.TabStop = false;
             this.simulacion_groupBox.Text = "Simulaciones";
+            // 
+            // SimStates_groupBox
+            // 
+            this.SimStates_groupBox.Controls.Add(this.simStates_comboBox);
+            this.SimStates_groupBox.Controls.Add(this.changeState_button);
+            this.SimStates_groupBox.Location = new System.Drawing.Point(659, 7);
+            this.SimStates_groupBox.Name = "SimStates_groupBox";
+            this.SimStates_groupBox.Size = new System.Drawing.Size(212, 46);
+            this.SimStates_groupBox.TabIndex = 4;
+            this.SimStates_groupBox.TabStop = false;
+            this.SimStates_groupBox.Text = "Simulation States";
+            // 
+            // simStates_comboBox
+            // 
+            this.simStates_comboBox.DataSource = this.estadoSimulacionBindingSource;
+            this.simStates_comboBox.DisplayMember = "nombre";
+            this.simStates_comboBox.FormattingEnabled = true;
+            this.simStates_comboBox.Location = new System.Drawing.Point(6, 14);
+            this.simStates_comboBox.Name = "simStates_comboBox";
+            this.simStates_comboBox.Size = new System.Drawing.Size(121, 21);
+            this.simStates_comboBox.TabIndex = 8;
+            this.simStates_comboBox.ValueMember = "idEstadoSimulacion";
+            // 
+            // changeState_button
+            // 
+            this.changeState_button.Location = new System.Drawing.Point(133, 14);
+            this.changeState_button.Name = "changeState_button";
+            this.changeState_button.Size = new System.Drawing.Size(75, 23);
+            this.changeState_button.TabIndex = 5;
+            this.changeState_button.Text = "Update";
+            this.changeState_button.UseVisualStyleBackColor = true;
+            this.changeState_button.Click += new System.EventHandler(this.changeState_button_Click);
             // 
             // dataGridView1
             // 
@@ -204,12 +265,13 @@
             this.métodoSelecciónDataGridViewTextBoxColumn,
             this.usuarioDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.vistaSimulaciónBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
+            this.dataGridView1.Location = new System.Drawing.Point(6, 60);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(859, 319);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(859, 278);
             this.dataGridView1.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn1
@@ -287,24 +349,20 @@
             // 
             this.vistaSimulaciónTableAdapter.ClearBeforeFill = true;
             // 
-            // simCountLabel_label
+            // _C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet1
             // 
-            this.simCountLabel_label.AutoSize = true;
-            this.simCountLabel_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simCountLabel_label.Location = new System.Drawing.Point(163, 16);
-            this.simCountLabel_label.Name = "simCountLabel_label";
-            this.simCountLabel_label.Size = new System.Drawing.Size(77, 13);
-            this.simCountLabel_label.TabIndex = 1;
-            this.simCountLabel_label.Text = "Connections";
+            this._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet1.DataSetName = "_C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBU" +
+                "G_WEBAPPDB_MDFDataSet1";
+            this._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // countSim_label
+            // estadoSimulacionBindingSource
             // 
-            this.countSim_label.AutoSize = true;
-            this.countSim_label.Location = new System.Drawing.Point(227, 29);
-            this.countSim_label.Name = "countSim_label";
-            this.countSim_label.Size = new System.Drawing.Size(13, 13);
-            this.countSim_label.TabIndex = 2;
-            this.countSim_label.Text = "0";
+            this.estadoSimulacionBindingSource.DataMember = "EstadoSimulacion";
+            this.estadoSimulacionBindingSource.DataSource = this._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet1;
+            // 
+            // estadoSimulacionTableAdapter
+            // 
+            this.estadoSimulacionTableAdapter.ClearBeforeFill = true;
             // 
             // runnerManagerForm
             // 
@@ -323,12 +381,15 @@
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             this.web_groupBox.ResumeLayout(false);
-            this.web_groupBox.PerformLayout();
             this.thread_groupBox.ResumeLayout(false);
             this.simulacion_groupBox.ResumeLayout(false);
+            this.simulacion_groupBox.PerformLayout();
+            this.SimStates_groupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vistaSimulaciónBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estadoSimulacionBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -349,9 +410,6 @@
         
         
         private System.Windows.Forms.GroupBox simulacion_groupBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaCreacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Timer timerUpdateSimGrid;
         private System.Windows.Forms.ToolStripStatusLabel Sims_toolStripStatusLabel;
@@ -368,6 +426,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn usuarioDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label countSim_label;
         private System.Windows.Forms.Label simCountLabel_label;
+        private System.Windows.Forms.GroupBox SimStates_groupBox;
+        private System.Windows.Forms.Button changeState_button;
+        private System.Windows.Forms.ComboBox simStates_comboBox;
+        private _C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet1 _C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet1;
+        private System.Windows.Forms.BindingSource estadoSimulacionBindingSource;
+        private _C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet1TableAdapters.EstadoSimulacionTableAdapter estadoSimulacionTableAdapter;
 
     }
 }

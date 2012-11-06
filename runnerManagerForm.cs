@@ -15,6 +15,7 @@ namespace runnerManager
 {
     public partial class runnerManagerForm : Form
     {
+        private webappDBDataContext webappDB;
         private System.ServiceProcess.ServiceController sc;
         private Socket conexion;
         private Socket server;
@@ -26,9 +27,10 @@ namespace runnerManager
         public runnerManagerForm()
         {
             InitializeComponent();
-            conexionesServidos = 0;
             sc = new System.ServiceProcess.ServiceController("runnerService");
-            send_button.Enabled = false;
+            webappDB = new webappDBDataContext();
+            conexionesServidos = 0;
+            
             initServerSocketListener();
             Thread tServer = new Thread(new ThreadStart(serverSocketThread));
             tServer.Start();            
@@ -144,6 +146,8 @@ namespace runnerManager
 
         private void runnerManagerForm_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla '_C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet1.EstadoSimulacion' Puede moverla o quitarla según sea necesario.
+            this.estadoSimulacionTableAdapter.Fill(this._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet1.EstadoSimulacion);
             // TODO: esta línea de código carga datos en la tabla '_C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet.VistaSimulación' Puede moverla o quitarla según sea necesario.
             this.vistaSimulaciónTableAdapter.Fill(this._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet.VistaSimulación);
         }
@@ -151,6 +155,8 @@ namespace runnerManager
         private void timerUpdateSimGrid_Tick(object sender, EventArgs e)
         {
             setDisplay();
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = this.vistaSimulaciónBindingSource;
             dataGridView1.Refresh();
             simsState_toolStripStatusLabel.Text = DateTime.Now.ToShortTimeString();
             countSim_label.Text = conexionesServidos.ToString();
@@ -204,6 +210,30 @@ namespace runnerManager
                 }
             }
         }
-        
+
+        private void changeState_button_Click(object sender, EventArgs e)
+        {
+            DataGridViewSelectedRowCollection filas = dataGridView1.SelectedRows;
+            EstadoSimulacion es = webappDB.EstadoSimulacion.Where(state => state.idEstadoSimulacion.Equals(simStates_comboBox.SelectedValue)).Single();
+            Simulacion simulation;
+            String oldEs, newEs;
+            foreach (DataGridViewRow f in filas)
+            {
+                simulation = webappDB.Simulacion
+                    .Where( 
+                        s=> 
+                        s.nombre
+                            .Equals( 
+                            f.Cells[0].Value.ToString()
+                        )
+                    )
+                    .Single();
+                oldEs = simulation.EstadoSimulacion.nombre;
+                newEs = es.nombre;
+                simulation.EstadoSimulacion = es;
+                threadLog_listBox.Items.Add(simulation.nombre + ": " + oldEs + " a " + newEs);
+            }
+            webappDB.SubmitChanges();
+        }        
     }
 }
