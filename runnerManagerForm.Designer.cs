@@ -46,6 +46,7 @@
             this.simulacion_groupBox = new System.Windows.Forms.GroupBox();
             this.SimStates_groupBox = new System.Windows.Forms.GroupBox();
             this.simStates_comboBox = new System.Windows.Forms.ComboBox();
+            this.estadoSimulacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.changeState_button = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,23 +57,20 @@
             this.métodoSelecciónDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vistaSimulaciónBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet = new runnerManager._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet();
+            this.WebappDBDataSet = new runnerManager.WebappDBDataSet();
             this.timerUpdateSimGrid = new System.Windows.Forms.Timer(this.components);
-            this.vistaSimulaciónTableAdapter = new runnerManager._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSetTableAdapters.VistaSimulaciónTableAdapter();
-            this._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet1 = new runnerManager._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet1();
-            this.estadoSimulacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.estadoSimulacionTableAdapter = new runnerManager._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet1TableAdapters.EstadoSimulacionTableAdapter();
+            this.vistaSimulaciónTableAdapter = new runnerManager.WebappDBDataSetTableAdapters.VistaSimulaciónTableAdapter();
+            this.estadoSimulacionTableAdapter = new runnerManager.WebappDBDataSetTableAdapters.EstadoSimulacionTableAdapter();
             this.service_groupBox.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.web_groupBox.SuspendLayout();
             this.thread_groupBox.SuspendLayout();
             this.simulacion_groupBox.SuspendLayout();
             this.SimStates_groupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.estadoSimulacionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vistaSimulaciónBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.estadoSimulacionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WebappDBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // startsvc_button
@@ -238,6 +236,11 @@
             this.simStates_comboBox.TabIndex = 8;
             this.simStates_comboBox.ValueMember = "idEstadoSimulacion";
             // 
+            // estadoSimulacionBindingSource
+            // 
+            this.estadoSimulacionBindingSource.DataMember = "EstadoSimulacion";
+            this.estadoSimulacionBindingSource.DataSource = this.WebappDBDataSet;
+            // 
             // changeState_button
             // 
             this.changeState_button.Location = new System.Drawing.Point(133, 14);
@@ -333,13 +336,12 @@
             // vistaSimulaciónBindingSource
             // 
             this.vistaSimulaciónBindingSource.DataMember = "VistaSimulación";
-            this.vistaSimulaciónBindingSource.DataSource = this._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet;
+            this.vistaSimulaciónBindingSource.DataSource = this.WebappDBDataSet;
             // 
-            // _C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet
+            // WebappDBDataSet
             // 
-            this._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet.DataSetName = "_C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBU" +
-                "G_WEBAPPDB_MDFDataSet";
-            this._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.WebappDBDataSet.DataSetName = "WebappDBDataSet";
+            this.WebappDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // timerUpdateSimGrid
             // 
@@ -348,17 +350,6 @@
             // vistaSimulaciónTableAdapter
             // 
             this.vistaSimulaciónTableAdapter.ClearBeforeFill = true;
-            // 
-            // _C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet1
-            // 
-            this._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet1.DataSetName = "_C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBU" +
-                "G_WEBAPPDB_MDFDataSet1";
-            this._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // estadoSimulacionBindingSource
-            // 
-            this.estadoSimulacionBindingSource.DataMember = "EstadoSimulacion";
-            this.estadoSimulacionBindingSource.DataSource = this._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet1;
             // 
             // estadoSimulacionTableAdapter
             // 
@@ -385,11 +376,10 @@
             this.simulacion_groupBox.ResumeLayout(false);
             this.simulacion_groupBox.PerformLayout();
             this.SimStates_groupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.estadoSimulacionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vistaSimulaciónBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.estadoSimulacionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WebappDBDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -414,9 +404,9 @@
         private System.Windows.Forms.Timer timerUpdateSimGrid;
         private System.Windows.Forms.ToolStripStatusLabel Sims_toolStripStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel simsState_toolStripStatusLabel;
-        private _C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet _C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet;
+        private WebappDBDataSet WebappDBDataSet;
         private System.Windows.Forms.BindingSource vistaSimulaciónBindingSource;
-        private _C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSetTableAdapters.VistaSimulaciónTableAdapter vistaSimulaciónTableAdapter;
+        private WebappDBDataSetTableAdapters.VistaSimulaciónTableAdapter vistaSimulaciónTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -429,9 +419,8 @@
         private System.Windows.Forms.GroupBox SimStates_groupBox;
         private System.Windows.Forms.Button changeState_button;
         private System.Windows.Forms.ComboBox simStates_comboBox;
-        private _C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet1 _C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet1;
         private System.Windows.Forms.BindingSource estadoSimulacionBindingSource;
-        private _C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet1TableAdapters.EstadoSimulacionTableAdapter estadoSimulacionTableAdapter;
+        private WebappDBDataSetTableAdapters.EstadoSimulacionTableAdapter estadoSimulacionTableAdapter;
 
     }
 }
