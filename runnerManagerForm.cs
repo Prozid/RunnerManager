@@ -10,25 +10,19 @@ using System.Net;
 using System.Net.Sockets;
 using System.Xml.Linq;
 using System.Threading;
+using System.Data.SqlClient;
 
 namespace runnerManager
 {
     public partial class runnerManagerForm : Form
     {
-        private webappDBDataContext webappDB;
         private System.ServiceProcess.ServiceController sc;
-        private Socket conexion;
-        private Socket server;
         private int conexionesServidos;
-
-        private static int puertoIn = 5959;
-        private static int puertoOut = 1990;
 
         public runnerManagerForm()
         {
             InitializeComponent();
             sc = new System.ServiceProcess.ServiceController("runnerService");
-            webappDB = new webappDBDataContext();
             conexionesServidos = 0;
                      
             timerUpdateSimGrid.Start();
@@ -93,43 +87,76 @@ namespace runnerManager
 
         private void runnerManagerForm_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'webappDBDataSet.Simulacion' Puede moverla o quitarla según sea necesario.
+            this.simulacionTableAdapter.Fill(this.webappDBDataSet.Simulacion);
             // TODO: esta línea de código carga datos en la tabla 'WebappDBDataSet.EstadoSimulacion' Puede moverla o quitarla según sea necesario.
-            this.estadoSimulacionTableAdapter.Fill(this.WebappDBDataSet.EstadoSimulacion);
+            this.estadoSimulaciónTableAdapter.Fill(this.webappDBDataSet.EstadoSimulacion);
             // TODO: esta línea de código carga datos en la tabla 'WebappDBDataSet.VistaSimulación' Puede moverla o quitarla según sea necesario.
-            this.vistaSimulaciónTableAdapter.Fill(this.WebappDBDataSet.VistaSimulación);
+            this.vistaSimulacionTableAdapter.Fill(this.webappDBDataSet.VistaSimulación);
         }
 
         private void timerUpdateSimGrid_Tick(object sender, EventArgs e)
         {
             setDisplay();
-            vistaSimulaciónTableAdapter.Fill(WebappDBDataSet.VistaSimulación);
+            vistaSimulacionTableAdapter.Fill(this.webappDBDataSet.VistaSimulación);
             simsState_toolStripStatusLabel.Text = DateTime.Now.ToShortTimeString();
             countSim_label.Text = conexionesServidos.ToString();
         }
 
         private void changeState_button_Click(object sender, EventArgs e)
         {
+            // Obtenemos las filas seleccionadas. Normalmente una sólo ya que 
+            // el DataGridView está en modo SingleSelection
             DataGridViewSelectedRowCollection filas = dataGridView1.SelectedRows;
-            EstadoSimulacion es = webappDB.EstadoSimulacion.Where(state => state.idEstadoSimulacion.Equals(simStates_comboBox.SelectedValue)).Single();
-            Simulacion simulation;
+  
+            // Obtenemos el estado de simulación seleccionado en el combobox.
+            WebappDBDataSet.EstadoSimulacionRow es = webappDBDataSet.EstadoSimulacion.Where(state => state.idEstadoSimulacion.Equals(simStates_comboBox.SelectedValue)).Single();
+
+
+            // Declaramos variables
+            WebappDBDataSet.SimulacionRow simulation;
             String oldEs, newEs;
+
+
+            // Iteramos entre las filas seleccionadas
             foreach (DataGridViewRow f in filas)
             {
-                simulation = webappDB.Simulacion
-                    .Where( 
-                        s=> 
-                        s.nombre
-                            .Equals( 
-                            f.Cells[0].Value.ToString()
+                // Obtenemos la simulacion
+                simulation = webappDBDataSet.Simulacion
+                    .Where(
+                        s =>
+                        s.idSimulacion
+                            .Equals(
+                            (Guid)f.Cells["idSimulacion"].Value
                         )
                     )
                     .Single();
-                oldEs = simulation.EstadoSimulacion.nombre;
+
+                // Guardamos los nombres de los estados para mostrarlos en el listBox
+                oldEs = simulation.EstadoSimulacionRow.nombre;
                 newEs = es.nombre;
-                simulation.EstadoSimulacion = es;
-                threadLog_listBox.Items.Add(simulation.nombre + ": " + oldEs + " a " + newEs);
+
+                // Modificamos el estado de la simulacion
+                simulation.BeginEdit();
+                simulation.EstadoSimulacionRow = es;
+                simulation.EndEdit(); 
+               
+                
+
+                try
+                {
+                    // Guardamos los cambios
+                    simulacionTableAdapter.Update(simulation);
+
+                    // Lo mostramos en el ListBox
+                    threadLog_listBox.Items.Add(simulation.nombre + ": " + oldEs + " a " + newEs);
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show("[CHANGE STATE] Error: " + exc, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            webappDB.SubmitChanges();
+            
         }        
     }
 }

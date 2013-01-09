@@ -47,20 +47,22 @@
             this.SimStates_groupBox = new System.Windows.Forms.GroupBox();
             this.simStates_comboBox = new System.Windows.Forms.ComboBox();
             this.estadoSimulacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.webappDBDataSet = new runnerManager.WebappDBDataSet();
             this.changeState_button = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.métodoClasificaciónDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.métodoSelecciónDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vistaSimulaciónBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.WebappDBDataSet = new runnerManager.WebappDBDataSet();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.timerUpdateSimGrid = new System.Windows.Forms.Timer(this.components);
-            this.vistaSimulaciónTableAdapter = new runnerManager.WebappDBDataSetTableAdapters.VistaSimulaciónTableAdapter();
-            this.estadoSimulacionTableAdapter = new runnerManager.WebappDBDataSetTableAdapters.EstadoSimulacionTableAdapter();
+            this.vistaSimulacionTableAdapter = new runnerManager.WebappDBDataSetTableAdapters.VistaSimulaciónTableAdapter();
+            this.estadoSimulaciónTableAdapter = new runnerManager.WebappDBDataSetTableAdapters.EstadoSimulacionTableAdapter();
+            this.simulacionTableAdapter = new runnerManager.WebappDBDataSetTableAdapters.SimulacionTableAdapter();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idSimulacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.service_groupBox.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.web_groupBox.SuspendLayout();
@@ -68,9 +70,9 @@
             this.simulacion_groupBox.SuspendLayout();
             this.SimStates_groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.estadoSimulacionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webappDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vistaSimulaciónBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WebappDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // startsvc_button
@@ -229,6 +231,7 @@
             // 
             this.simStates_comboBox.DataSource = this.estadoSimulacionBindingSource;
             this.simStates_comboBox.DisplayMember = "nombre";
+            this.simStates_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.simStates_comboBox.FormattingEnabled = true;
             this.simStates_comboBox.Location = new System.Drawing.Point(6, 14);
             this.simStates_comboBox.Name = "simStates_comboBox";
@@ -239,7 +242,12 @@
             // estadoSimulacionBindingSource
             // 
             this.estadoSimulacionBindingSource.DataMember = "EstadoSimulacion";
-            this.estadoSimulacionBindingSource.DataSource = this.WebappDBDataSet;
+            this.estadoSimulacionBindingSource.DataSource = this.webappDBDataSet;
+            // 
+            // webappDBDataSet
+            // 
+            this.webappDBDataSet.DataSetName = "WebappDBDataSet";
+            this.webappDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // changeState_button
             // 
@@ -260,100 +268,97 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nombre,
+            this.idSimulacion,
+            this.descripcion,
+            this.fechaCreacion,
             this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.estadoDataGridViewTextBoxColumn,
-            this.métodoClasificaciónDataGridViewTextBoxColumn,
-            this.métodoSelecciónDataGridViewTextBoxColumn,
-            this.usuarioDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.vistaSimulaciónBindingSource;
+            this.usuario});
+            this.dataGridView1.DataSource = this.bindingSource1;
             this.dataGridView1.Location = new System.Drawing.Point(6, 60);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(859, 278);
             this.dataGridView1.TabIndex = 2;
             // 
-            // dataGridViewTextBoxColumn1
+            // bindingSource1
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "nombre";
-            this.dataGridViewTextBoxColumn1.HeaderText = "nombre";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 67;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "descripcion";
-            this.dataGridViewTextBoxColumn2.HeaderText = "descripcion";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 86;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "fechaCreacion";
-            this.dataGridViewTextBoxColumn3.HeaderText = "fechaCreacion";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 101;
-            // 
-            // estadoDataGridViewTextBoxColumn
-            // 
-            this.estadoDataGridViewTextBoxColumn.DataPropertyName = "Estado";
-            this.estadoDataGridViewTextBoxColumn.HeaderText = "Estado";
-            this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
-            this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.estadoDataGridViewTextBoxColumn.Width = 65;
-            // 
-            // métodoClasificaciónDataGridViewTextBoxColumn
-            // 
-            this.métodoClasificaciónDataGridViewTextBoxColumn.DataPropertyName = "Método Clasificación";
-            this.métodoClasificaciónDataGridViewTextBoxColumn.HeaderText = "Método Clasificación";
-            this.métodoClasificaciónDataGridViewTextBoxColumn.Name = "métodoClasificaciónDataGridViewTextBoxColumn";
-            this.métodoClasificaciónDataGridViewTextBoxColumn.ReadOnly = true;
-            this.métodoClasificaciónDataGridViewTextBoxColumn.Width = 119;
-            // 
-            // métodoSelecciónDataGridViewTextBoxColumn
-            // 
-            this.métodoSelecciónDataGridViewTextBoxColumn.DataPropertyName = "Método Selección";
-            this.métodoSelecciónDataGridViewTextBoxColumn.HeaderText = "Método Selección";
-            this.métodoSelecciónDataGridViewTextBoxColumn.Name = "métodoSelecciónDataGridViewTextBoxColumn";
-            this.métodoSelecciónDataGridViewTextBoxColumn.ReadOnly = true;
-            this.métodoSelecciónDataGridViewTextBoxColumn.Width = 108;
-            // 
-            // usuarioDataGridViewTextBoxColumn
-            // 
-            this.usuarioDataGridViewTextBoxColumn.DataPropertyName = "usuario";
-            this.usuarioDataGridViewTextBoxColumn.HeaderText = "usuario";
-            this.usuarioDataGridViewTextBoxColumn.Name = "usuarioDataGridViewTextBoxColumn";
-            this.usuarioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.usuarioDataGridViewTextBoxColumn.Width = 66;
-            // 
-            // vistaSimulaciónBindingSource
-            // 
-            this.vistaSimulaciónBindingSource.DataMember = "VistaSimulación";
-            this.vistaSimulaciónBindingSource.DataSource = this.WebappDBDataSet;
-            // 
-            // WebappDBDataSet
-            // 
-            this.WebappDBDataSet.DataSetName = "WebappDBDataSet";
-            this.WebappDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.bindingSource1.DataMember = "VistaSimulación";
+            this.bindingSource1.DataSource = this.webappDBDataSet;
             // 
             // timerUpdateSimGrid
             // 
             this.timerUpdateSimGrid.Tick += new System.EventHandler(this.timerUpdateSimGrid_Tick);
             // 
-            // vistaSimulaciónTableAdapter
+            // vistaSimulacionTableAdapter
             // 
-            this.vistaSimulaciónTableAdapter.ClearBeforeFill = true;
+            this.vistaSimulacionTableAdapter.ClearBeforeFill = true;
             // 
-            // estadoSimulacionTableAdapter
+            // estadoSimulaciónTableAdapter
             // 
-            this.estadoSimulacionTableAdapter.ClearBeforeFill = true;
+            this.estadoSimulaciónTableAdapter.ClearBeforeFill = true;
+            // 
+            // simulacionTableAdapter
+            // 
+            this.simulacionTableAdapter.ClearBeforeFill = true;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.Width = 67;
+            // 
+            // Estado
+            // 
+            this.Estado.DataPropertyName = "Estado";
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            // 
+            // nombre
+            // 
+            this.nombre.DataPropertyName = "nombre";
+            this.nombre.HeaderText = "nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.Width = 67;
+            // 
+            // idSimulacion
+            // 
+            this.idSimulacion.DataPropertyName = "idSimulacion";
+            this.idSimulacion.HeaderText = "idSimulacion";
+            this.idSimulacion.Name = "idSimulacion";
+            this.idSimulacion.Visible = false;
+            this.idSimulacion.Width = 91;
+            // 
+            // descripcion
+            // 
+            this.descripcion.DataPropertyName = "descripcion";
+            this.descripcion.HeaderText = "descripcion";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.Width = 86;
+            // 
+            // fechaCreacion
+            // 
+            this.fechaCreacion.DataPropertyName = "fechaCreacion";
+            this.fechaCreacion.HeaderText = "fechaCreacion";
+            this.fechaCreacion.Name = "fechaCreacion";
+            this.fechaCreacion.Width = 101;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Estado";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Estado";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 65;
+            // 
+            // usuario
+            // 
+            this.usuario.DataPropertyName = "usuario";
+            this.usuario.HeaderText = "usuario";
+            this.usuario.Name = "usuario";
+            this.usuario.Width = 66;
             // 
             // runnerManagerForm
             // 
@@ -377,9 +382,9 @@
             this.simulacion_groupBox.PerformLayout();
             this.SimStates_groupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.estadoSimulacionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webappDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vistaSimulaciónBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WebappDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -404,23 +409,25 @@
         private System.Windows.Forms.Timer timerUpdateSimGrid;
         private System.Windows.Forms.ToolStripStatusLabel Sims_toolStripStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel simsState_toolStripStatusLabel;
-        private WebappDBDataSet WebappDBDataSet;
-        private System.Windows.Forms.BindingSource vistaSimulaciónBindingSource;
-        private WebappDBDataSetTableAdapters.VistaSimulaciónTableAdapter vistaSimulaciónTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn métodoClasificaciónDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn métodoSelecciónDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usuarioDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label countSim_label;
         private System.Windows.Forms.Label simCountLabel_label;
         private System.Windows.Forms.GroupBox SimStates_groupBox;
         private System.Windows.Forms.Button changeState_button;
         private System.Windows.Forms.ComboBox simStates_comboBox;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private WebappDBDataSet webappDBDataSet;
+        private WebappDBDataSetTableAdapters.VistaSimulaciónTableAdapter vistaSimulacionTableAdapter;
+        private WebappDBDataSetTableAdapters.EstadoSimulacionTableAdapter estadoSimulaciónTableAdapter;
         private System.Windows.Forms.BindingSource estadoSimulacionBindingSource;
-        private WebappDBDataSetTableAdapters.EstadoSimulacionTableAdapter estadoSimulacionTableAdapter;
+        private WebappDBDataSetTableAdapters.SimulacionTableAdapter simulacionTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idSimulacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaCreacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usuario;
 
     }
 }
