@@ -57,5 +57,15 @@ namespace runnerManager.Properties {
                 return ((string)(this["webappDBConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;Initial Catalog=runnerDB;Integrated Security=True")]
+        public string runnerDBConnectionString {
+            get {
+                return ((string)(this["runnerDBConnectionString"]));
+            }
+        }
     }
 }
