@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="WebappDBDataSet" targetNamespace="http://tempuri.org/_C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet.xsd" xmlns:mstns="http://tempuri.org/_C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet.xsd" xmlns="http://tempuri.org/_C__USERS_DANI_DOCUMENTS_VISUAL_STUDIO_2010_PROJECTS_RUNNERSVC_RUNNERSVC_BIN_DEBUG_WEBAPPDB_MDFDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="WebappDBDataSet" targetNamespace="http://tempuri.org/WebappDBDataSet.xsd" xmlns:mstns="http://tempuri.org/WebappDBDataSet.xsd" xmlns="http://tempuri.org/WebappDBDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -13,7 +13,7 @@
               <DbSource ConnectionRef="webappDBConnectionString (Settings)" DbObjectName="webappDB.dbo.VistaSimulación" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT nombre, descripcion, fechaCreacion, Estado, [Método Clasificación], [Método Selección], usuario FROM dbo.VistaSimulación</CommandText>
+                    <CommandText>SELECT idSimulacion, nombre, descripcion, fechaCreacion, Estado, [Método Clasificación], [Método Selección], usuario FROM dbo.VistaSimulación</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -27,6 +27,7 @@
               <Mapping SourceColumn="Método Clasificación" DataSetColumn="Método Clasificación" />
               <Mapping SourceColumn="Método Selección" DataSetColumn="Método Selección" />
               <Mapping SourceColumn="usuario" DataSetColumn="usuario" />
+              <Mapping SourceColumn="idSimulacion" DataSetColumn="idSimulacion" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -91,6 +92,546 @@ SELECT idEstadoSimulacion, nombre, descripcion, nombreCorto FROM EstadoSimulacio
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SimulacionTableAdapter" GeneratorDataComponentClassName="SimulacionTableAdapter" Name="Simulacion" UserDataComponentName="SimulacionTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="webappDBConnectionString (Settings)" DbObjectName="webappDB.dbo.Simulacion" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[Simulacion] WHERE (([idSimulacion] = @Original_idSimulacion) AND ([idProyecto] = @Original_idProyecto) AND ([nombre] = @Original_nombre) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ([fechaCreacion] = @Original_fechaCreacion) AND ([idMetodoSeleccion] = @Original_idMetodoSeleccion) AND ([idMetodoClasificacion] = @Original_idMetodoClasificacion) AND ([idEstadoSimulacion] = @Original_idEstadoSimulacion) AND ((@IsNull_parametrosSeleccion = 1 AND [parametrosSeleccion] IS NULL) OR ([parametrosSeleccion] = @Original_parametrosSeleccion)) AND ((@IsNull_parametrosClasificacion = 1 AND [parametrosClasificacion] IS NULL) OR ([parametrosClasificacion] = @Original_parametrosClasificacion)) AND ([usuario] = @Original_usuario))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_idSimulacion" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idSimulacion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_idProyecto" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idProyecto" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_descripcion" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_descripcion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_fechaCreacion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fechaCreacion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_idMetodoSeleccion" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idMetodoSeleccion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_idMetodoClasificacion" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idMetodoClasificacion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_idEstadoSimulacion" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idEstadoSimulacion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_parametrosSeleccion" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="parametrosSeleccion" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_parametrosSeleccion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="parametrosSeleccion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_parametrosClasificacion" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="parametrosClasificacion" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_parametrosClasificacion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="parametrosClasificacion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_usuario" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="usuario" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[Simulacion] ([idSimulacion], [idProyecto], [nombre], [descripcion], [fechaCreacion], [idMetodoSeleccion], [idMetodoClasificacion], [idEstadoSimulacion], [parametrosSeleccion], [parametrosClasificacion], [usuario]) VALUES (@idSimulacion, @idProyecto, @nombre, @descripcion, @fechaCreacion, @idMetodoSeleccion, @idMetodoClasificacion, @idEstadoSimulacion, @parametrosSeleccion, @parametrosClasificacion, @usuario);
+SELECT idSimulacion, idProyecto, nombre, descripcion, fechaCreacion, idMetodoSeleccion, idMetodoClasificacion, idEstadoSimulacion, parametrosSeleccion, parametrosClasificacion, usuario FROM Simulacion WHERE (idSimulacion = @idSimulacion)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@idSimulacion" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idSimulacion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@idProyecto" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idProyecto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@descripcion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@fechaCreacion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fechaCreacion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@idMetodoSeleccion" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idMetodoSeleccion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@idMetodoClasificacion" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idMetodoClasificacion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@idEstadoSimulacion" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idEstadoSimulacion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@parametrosSeleccion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="parametrosSeleccion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@parametrosClasificacion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="parametrosClasificacion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@usuario" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="usuario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idSimulacion, idProyecto, nombre, descripcion, fechaCreacion, idMetodoSeleccion, idMetodoClasificacion, idEstadoSimulacion, parametrosSeleccion, parametrosClasificacion, usuario FROM dbo.Simulacion</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[Simulacion] SET [idSimulacion] = @idSimulacion, [idProyecto] = @idProyecto, [nombre] = @nombre, [descripcion] = @descripcion, [fechaCreacion] = @fechaCreacion, [idMetodoSeleccion] = @idMetodoSeleccion, [idMetodoClasificacion] = @idMetodoClasificacion, [idEstadoSimulacion] = @idEstadoSimulacion, [parametrosSeleccion] = @parametrosSeleccion, [parametrosClasificacion] = @parametrosClasificacion, [usuario] = @usuario WHERE (([idSimulacion] = @Original_idSimulacion) AND ([idProyecto] = @Original_idProyecto) AND ([nombre] = @Original_nombre) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ([fechaCreacion] = @Original_fechaCreacion) AND ([idMetodoSeleccion] = @Original_idMetodoSeleccion) AND ([idMetodoClasificacion] = @Original_idMetodoClasificacion) AND ([idEstadoSimulacion] = @Original_idEstadoSimulacion) AND ((@IsNull_parametrosSeleccion = 1 AND [parametrosSeleccion] IS NULL) OR ([parametrosSeleccion] = @Original_parametrosSeleccion)) AND ((@IsNull_parametrosClasificacion = 1 AND [parametrosClasificacion] IS NULL) OR ([parametrosClasificacion] = @Original_parametrosClasificacion)) AND ([usuario] = @Original_usuario));
+SELECT idSimulacion, idProyecto, nombre, descripcion, fechaCreacion, idMetodoSeleccion, idMetodoClasificacion, idEstadoSimulacion, parametrosSeleccion, parametrosClasificacion, usuario FROM Simulacion WHERE (idSimulacion = @idSimulacion)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@idSimulacion" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idSimulacion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@idProyecto" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idProyecto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@descripcion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@fechaCreacion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fechaCreacion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@idMetodoSeleccion" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idMetodoSeleccion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@idMetodoClasificacion" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idMetodoClasificacion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@idEstadoSimulacion" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idEstadoSimulacion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@parametrosSeleccion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="parametrosSeleccion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@parametrosClasificacion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="parametrosClasificacion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@usuario" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="usuario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_idSimulacion" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idSimulacion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_idProyecto" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idProyecto" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_descripcion" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_descripcion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_fechaCreacion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fechaCreacion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_idMetodoSeleccion" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idMetodoSeleccion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_idMetodoClasificacion" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idMetodoClasificacion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_idEstadoSimulacion" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idEstadoSimulacion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_parametrosSeleccion" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="parametrosSeleccion" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_parametrosSeleccion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="parametrosSeleccion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_parametrosClasificacion" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="parametrosClasificacion" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_parametrosClasificacion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="parametrosClasificacion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_usuario" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="usuario" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idSimulacion" DataSetColumn="idSimulacion" />
+              <Mapping SourceColumn="idProyecto" DataSetColumn="idProyecto" />
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+              <Mapping SourceColumn="descripcion" DataSetColumn="descripcion" />
+              <Mapping SourceColumn="fechaCreacion" DataSetColumn="fechaCreacion" />
+              <Mapping SourceColumn="idMetodoSeleccion" DataSetColumn="idMetodoSeleccion" />
+              <Mapping SourceColumn="idMetodoClasificacion" DataSetColumn="idMetodoClasificacion" />
+              <Mapping SourceColumn="idEstadoSimulacion" DataSetColumn="idEstadoSimulacion" />
+              <Mapping SourceColumn="parametrosSeleccion" DataSetColumn="parametrosSeleccion" />
+              <Mapping SourceColumn="parametrosClasificacion" DataSetColumn="parametrosClasificacion" />
+              <Mapping SourceColumn="usuario" DataSetColumn="usuario" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ArchivoTableAdapter" GeneratorDataComponentClassName="ArchivoTableAdapter" Name="Archivo" UserDataComponentName="ArchivoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="webappDBConnectionString (Settings)" DbObjectName="webappDB.dbo.Archivo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[Archivo] WHERE (([idArchivo] = @Original_idArchivo) AND ([idCarpeta] = @Original_idCarpeta) AND ([usuario] = @Original_usuario) AND ([publico] = @Original_publico) AND ([nombre] = @Original_nombre) AND ([content/type] = @p2) AND ([fechaCreacion] = @Original_fechaCreacion) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ([baseDatos] = @Original_baseDatos))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_idArchivo" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idArchivo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_idCarpeta" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idCarpeta" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_usuario" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="usuario" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_publico" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="publico" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@p2" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="content/type" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_fechaCreacion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fechaCreacion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_descripcion" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_descripcion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_baseDatos" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="baseDatos" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[Archivo] ([idArchivo], [idCarpeta], [usuario], [publico], [nombre], [content/type], [datos], [fechaCreacion], [descripcion], [baseDatos]) VALUES (@idArchivo, @idCarpeta, @usuario, @publico, @nombre, @p1, @datos, @fechaCreacion, @descripcion, @baseDatos);
+SELECT idArchivo, idCarpeta, usuario, publico, nombre, [content/type], datos, fechaCreacion, descripcion, baseDatos FROM Archivo WHERE (idArchivo = @idArchivo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@idArchivo" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idArchivo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@idCarpeta" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idCarpeta" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@usuario" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="usuario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@publico" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="publico" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@p1" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="content/type" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Binary" Direction="Input" ParameterName="@datos" Precision="0" ProviderType="Image" Scale="0" Size="0" SourceColumn="datos" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@fechaCreacion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fechaCreacion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@descripcion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@baseDatos" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="baseDatos" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idArchivo, idCarpeta, usuario, publico, nombre, [content/type], datos, fechaCreacion, descripcion, baseDatos FROM dbo.Archivo</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[Archivo] SET [idArchivo] = @idArchivo, [idCarpeta] = @idCarpeta, [usuario] = @usuario, [publico] = @publico, [nombre] = @nombre, [content/type] = @p1, [datos] = @datos, [fechaCreacion] = @fechaCreacion, [descripcion] = @descripcion, [baseDatos] = @baseDatos WHERE (([idArchivo] = @Original_idArchivo) AND ([idCarpeta] = @Original_idCarpeta) AND ([usuario] = @Original_usuario) AND ([publico] = @Original_publico) AND ([nombre] = @Original_nombre) AND ([content/type] = @p2) AND ([fechaCreacion] = @Original_fechaCreacion) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ([baseDatos] = @Original_baseDatos));
+SELECT idArchivo, idCarpeta, usuario, publico, nombre, [content/type], datos, fechaCreacion, descripcion, baseDatos FROM Archivo WHERE (idArchivo = @idArchivo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@idArchivo" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idArchivo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@idCarpeta" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idCarpeta" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@usuario" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="usuario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@publico" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="publico" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@p1" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="content/type" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Binary" Direction="Input" ParameterName="@datos" Precision="0" ProviderType="Image" Scale="0" Size="0" SourceColumn="datos" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@fechaCreacion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fechaCreacion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@descripcion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@baseDatos" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="baseDatos" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_idArchivo" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idArchivo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_idCarpeta" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idCarpeta" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_usuario" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="usuario" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_publico" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="publico" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@p2" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="content/type" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_fechaCreacion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fechaCreacion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_descripcion" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_descripcion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_baseDatos" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="baseDatos" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idArchivo" DataSetColumn="idArchivo" />
+              <Mapping SourceColumn="idCarpeta" DataSetColumn="idCarpeta" />
+              <Mapping SourceColumn="usuario" DataSetColumn="usuario" />
+              <Mapping SourceColumn="publico" DataSetColumn="publico" />
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+              <Mapping SourceColumn="content/type" DataSetColumn="content/type" />
+              <Mapping SourceColumn="datos" DataSetColumn="datos" />
+              <Mapping SourceColumn="fechaCreacion" DataSetColumn="fechaCreacion" />
+              <Mapping SourceColumn="descripcion" DataSetColumn="descripcion" />
+              <Mapping SourceColumn="baseDatos" DataSetColumn="baseDatos" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CarpetaTableAdapter" GeneratorDataComponentClassName="CarpetaTableAdapter" Name="Carpeta" UserDataComponentName="CarpetaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="webappDBConnectionString (Settings)" DbObjectName="webappDB.dbo.Carpeta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[Carpeta] WHERE (([idCarpeta] = @Original_idCarpeta) AND ([nombre] = @Original_nombre) AND ((@IsNull_idPadre = 1 AND [idPadre] IS NULL) OR ([idPadre] = @Original_idPadre)) AND ([usuario] = @Original_usuario) AND ([fechaCreac¡on] = @p2))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_idCarpeta" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idCarpeta" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_idPadre" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idPadre" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_idPadre" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idPadre" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_usuario" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="usuario" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@p2" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fechaCreac¡on" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[Carpeta] ([idCarpeta], [nombre], [idPadre], [usuario], [fechaCreac¡on]) VALUES (@idCarpeta, @nombre, @idPadre, @usuario, @p1);
+SELECT idCarpeta, nombre, idPadre, usuario, [fechaCreac¡on] FROM Carpeta WHERE (idCarpeta = @idCarpeta)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@idCarpeta" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idCarpeta" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@idPadre" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idPadre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@usuario" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="usuario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@p1" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fechaCreac¡on" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idCarpeta, nombre, idPadre, usuario, [fechaCreac¡on] FROM dbo.Carpeta</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[Carpeta] SET [idCarpeta] = @idCarpeta, [nombre] = @nombre, [idPadre] = @idPadre, [usuario] = @usuario, [fechaCreac¡on] = @p1 WHERE (([idCarpeta] = @Original_idCarpeta) AND ([nombre] = @Original_nombre) AND ((@IsNull_idPadre = 1 AND [idPadre] IS NULL) OR ([idPadre] = @Original_idPadre)) AND ([usuario] = @Original_usuario) AND ([fechaCreac¡on] = @p2));
+SELECT idCarpeta, nombre, idPadre, usuario, [fechaCreac¡on] FROM Carpeta WHERE (idCarpeta = @idCarpeta)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@idCarpeta" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idCarpeta" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@idPadre" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idPadre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@usuario" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="usuario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@p1" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fechaCreac¡on" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_idCarpeta" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idCarpeta" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_idPadre" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idPadre" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_idPadre" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idPadre" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_usuario" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="usuario" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@p2" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fechaCreac¡on" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idCarpeta" DataSetColumn="idCarpeta" />
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+              <Mapping SourceColumn="idPadre" DataSetColumn="idPadre" />
+              <Mapping SourceColumn="usuario" DataSetColumn="usuario" />
+              <Mapping SourceColumn="fechaCreac¡on" DataSetColumn="fechaCreac¡on" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MetodoClasificacionTableAdapter" GeneratorDataComponentClassName="MetodoClasificacionTableAdapter" Name="MetodoClasificacion" UserDataComponentName="MetodoClasificacionTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="webappDBConnectionString (Settings)" DbObjectName="webappDB.dbo.MetodoClasificacion" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[MetodoClasificacion] WHERE (([idMetodoClasificacion] = @Original_idMetodoClasificacion) AND ([nombre] = @Original_nombre) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ((@IsNull_parametrosDefecto = 1 AND [parametrosDefecto] IS NULL) OR ([parametrosDefecto] = @Original_parametrosDefecto)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_idMetodoClasificacion" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idMetodoClasificacion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_descripcion" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_descripcion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_parametrosDefecto" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="parametrosDefecto" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_parametrosDefecto" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="parametrosDefecto" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[MetodoClasificacion] ([idMetodoClasificacion], [nombre], [descripcion], [parametrosDefecto]) VALUES (@idMetodoClasificacion, @nombre, @descripcion, @parametrosDefecto);
+SELECT idMetodoClasificacion, nombre, descripcion, parametrosDefecto FROM MetodoClasificacion WHERE (idMetodoClasificacion = @idMetodoClasificacion)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@idMetodoClasificacion" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idMetodoClasificacion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@descripcion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@parametrosDefecto" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="parametrosDefecto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idMetodoClasificacion, nombre, descripcion, parametrosDefecto FROM dbo.MetodoClasificacion</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[MetodoClasificacion] SET [idMetodoClasificacion] = @idMetodoClasificacion, [nombre] = @nombre, [descripcion] = @descripcion, [parametrosDefecto] = @parametrosDefecto WHERE (([idMetodoClasificacion] = @Original_idMetodoClasificacion) AND ([nombre] = @Original_nombre) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ((@IsNull_parametrosDefecto = 1 AND [parametrosDefecto] IS NULL) OR ([parametrosDefecto] = @Original_parametrosDefecto)));
+SELECT idMetodoClasificacion, nombre, descripcion, parametrosDefecto FROM MetodoClasificacion WHERE (idMetodoClasificacion = @idMetodoClasificacion)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@idMetodoClasificacion" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idMetodoClasificacion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@descripcion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@parametrosDefecto" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="parametrosDefecto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_idMetodoClasificacion" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idMetodoClasificacion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_descripcion" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_descripcion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_parametrosDefecto" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="parametrosDefecto" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_parametrosDefecto" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="parametrosDefecto" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idMetodoClasificacion" DataSetColumn="idMetodoClasificacion" />
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+              <Mapping SourceColumn="descripcion" DataSetColumn="descripcion" />
+              <Mapping SourceColumn="parametrosDefecto" DataSetColumn="parametrosDefecto" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MetodoSeleccionTableAdapter" GeneratorDataComponentClassName="MetodoSeleccionTableAdapter" Name="MetodoSeleccion" UserDataComponentName="MetodoSeleccionTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="webappDBConnectionString (Settings)" DbObjectName="webappDB.dbo.MetodoSeleccion" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[MetodoSeleccion] WHERE (([idMetodoSeleccion] = @Original_idMetodoSeleccion) AND ([nombre] = @Original_nombre) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ((@IsNull_parametrosDefecto = 1 AND [parametrosDefecto] IS NULL) OR ([parametrosDefecto] = @Original_parametrosDefecto)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_idMetodoSeleccion" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idMetodoSeleccion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_descripcion" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_descripcion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_parametrosDefecto" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="parametrosDefecto" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_parametrosDefecto" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="parametrosDefecto" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[MetodoSeleccion] ([idMetodoSeleccion], [nombre], [descripcion], [parametrosDefecto]) VALUES (@idMetodoSeleccion, @nombre, @descripcion, @parametrosDefecto);
+SELECT idMetodoSeleccion, nombre, descripcion, parametrosDefecto FROM MetodoSeleccion WHERE (idMetodoSeleccion = @idMetodoSeleccion)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@idMetodoSeleccion" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idMetodoSeleccion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@descripcion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@parametrosDefecto" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="parametrosDefecto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idMetodoSeleccion, nombre, descripcion, parametrosDefecto FROM dbo.MetodoSeleccion</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[MetodoSeleccion] SET [idMetodoSeleccion] = @idMetodoSeleccion, [nombre] = @nombre, [descripcion] = @descripcion, [parametrosDefecto] = @parametrosDefecto WHERE (([idMetodoSeleccion] = @Original_idMetodoSeleccion) AND ([nombre] = @Original_nombre) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ((@IsNull_parametrosDefecto = 1 AND [parametrosDefecto] IS NULL) OR ([parametrosDefecto] = @Original_parametrosDefecto)));
+SELECT idMetodoSeleccion, nombre, descripcion, parametrosDefecto FROM MetodoSeleccion WHERE (idMetodoSeleccion = @idMetodoSeleccion)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@idMetodoSeleccion" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idMetodoSeleccion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@descripcion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@parametrosDefecto" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="parametrosDefecto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_idMetodoSeleccion" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idMetodoSeleccion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_descripcion" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_descripcion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_parametrosDefecto" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="parametrosDefecto" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_parametrosDefecto" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="parametrosDefecto" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idMetodoSeleccion" DataSetColumn="idMetodoSeleccion" />
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+              <Mapping SourceColumn="descripcion" DataSetColumn="descripcion" />
+              <Mapping SourceColumn="parametrosDefecto" DataSetColumn="parametrosDefecto" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ProyectoTableAdapter" GeneratorDataComponentClassName="ProyectoTableAdapter" Name="Proyecto" UserDataComponentName="ProyectoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="webappDBConnectionString (Settings)" DbObjectName="webappDB.dbo.Proyecto" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[Proyecto] WHERE (([idProyecto] = @Original_idProyecto) AND ([nombre] = @Original_nombre) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ((@IsNull_fechaUltimaSimulacion = 1 AND [fechaUltimaSimulacion] IS NULL) OR ([fechaUltimaSimulacion] = @Original_fechaUltimaSimulacion)) AND ([fechaCreacion] = @Original_fechaCreacion) AND ([idArchivo] = @Original_idArchivo))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_idProyecto" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idProyecto" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_descripcion" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_descripcion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_fechaUltimaSimulacion" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="fechaUltimaSimulacion" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_fechaUltimaSimulacion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fechaUltimaSimulacion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_fechaCreacion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fechaCreacion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_idArchivo" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idArchivo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[Proyecto] ([idProyecto], [nombre], [descripcion], [fechaUltimaSimulacion], [fechaCreacion], [idArchivo]) VALUES (@idProyecto, @nombre, @descripcion, @fechaUltimaSimulacion, @fechaCreacion, @idArchivo);
+SELECT idProyecto, nombre, descripcion, fechaUltimaSimulacion, fechaCreacion, idArchivo FROM Proyecto WHERE (idProyecto = @idProyecto)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@idProyecto" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idProyecto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@descripcion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@fechaUltimaSimulacion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fechaUltimaSimulacion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@fechaCreacion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fechaCreacion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@idArchivo" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idArchivo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idProyecto, nombre, descripcion, fechaUltimaSimulacion, fechaCreacion, idArchivo FROM dbo.Proyecto</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[Proyecto] SET [idProyecto] = @idProyecto, [nombre] = @nombre, [descripcion] = @descripcion, [fechaUltimaSimulacion] = @fechaUltimaSimulacion, [fechaCreacion] = @fechaCreacion, [idArchivo] = @idArchivo WHERE (([idProyecto] = @Original_idProyecto) AND ([nombre] = @Original_nombre) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ((@IsNull_fechaUltimaSimulacion = 1 AND [fechaUltimaSimulacion] IS NULL) OR ([fechaUltimaSimulacion] = @Original_fechaUltimaSimulacion)) AND ([fechaCreacion] = @Original_fechaCreacion) AND ([idArchivo] = @Original_idArchivo));
+SELECT idProyecto, nombre, descripcion, fechaUltimaSimulacion, fechaCreacion, idArchivo FROM Proyecto WHERE (idProyecto = @idProyecto)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@idProyecto" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idProyecto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@descripcion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@fechaUltimaSimulacion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fechaUltimaSimulacion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@fechaCreacion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fechaCreacion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@idArchivo" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idArchivo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_idProyecto" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idProyecto" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_descripcion" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_descripcion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_fechaUltimaSimulacion" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="fechaUltimaSimulacion" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_fechaUltimaSimulacion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fechaUltimaSimulacion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_fechaCreacion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fechaCreacion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_idArchivo" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idArchivo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idProyecto" DataSetColumn="idProyecto" />
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+              <Mapping SourceColumn="descripcion" DataSetColumn="descripcion" />
+              <Mapping SourceColumn="fechaUltimaSimulacion" DataSetColumn="fechaUltimaSimulacion" />
+              <Mapping SourceColumn="fechaCreacion" DataSetColumn="fechaCreacion" />
+              <Mapping SourceColumn="idArchivo" DataSetColumn="idArchivo" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ResultadosTableAdapter" GeneratorDataComponentClassName="ResultadosTableAdapter" Name="Resultados" UserDataComponentName="ResultadosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="webappDBConnectionString (Settings)" DbObjectName="webappDB.dbo.Resultados" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[Resultados] WHERE (([idResultado] = @Original_idResultado) AND ([nGenes] = @Original_nGenes) AND ([media] = @Original_media) AND ([acierto] = @Original_acierto) AND ([desviacionEstandard] = @Original_desviacionEstandard) AND ([mediana] = @Original_mediana) AND ((@IsNull_fechaLanzamiento = 1 AND [fechaLanzamiento] IS NULL) OR ([fechaLanzamiento] = @Original_fechaLanzamiento)) AND ((@IsNull_fechaFinalizacion = 1 AND [fechaFinalizacion] IS NULL) OR ([fechaFinalizacion] = @Original_fechaFinalizacion)) AND ((@IsNull_duracion = 1 AND [duracion] IS NULL) OR ([duracion] = @Original_duracion)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_idResultado" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idResultado" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_nGenes" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nGenes" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_media" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="media" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_acierto" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="acierto" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_desviacionEstandard" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="desviacionEstandard" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_mediana" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="mediana" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_fechaLanzamiento" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="fechaLanzamiento" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_fechaLanzamiento" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fechaLanzamiento" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_fechaFinalizacion" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="fechaFinalizacion" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_fechaFinalizacion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fechaFinalizacion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_duracion" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="duracion" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_duracion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="duracion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[Resultados] ([idResultado], [nGenes], [genes], [media], [acierto], [desviacionEstandard], [mediana], [fechaLanzamiento], [fechaFinalizacion], [duracion]) VALUES (@idResultado, @nGenes, @genes, @media, @acierto, @desviacionEstandard, @mediana, @fechaLanzamiento, @fechaFinalizacion, @duracion);
+SELECT idResultado, nGenes, genes, media, acierto, desviacionEstandard, mediana, fechaLanzamiento, fechaFinalizacion, duracion FROM Resultados WHERE (idResultado = @idResultado)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@idResultado" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idResultado" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@nGenes" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nGenes" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Binary" Direction="Input" ParameterName="@genes" Precision="0" ProviderType="Image" Scale="0" Size="0" SourceColumn="genes" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@media" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="media" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@acierto" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="acierto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@desviacionEstandard" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="desviacionEstandard" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@mediana" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="mediana" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@fechaLanzamiento" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fechaLanzamiento" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@fechaFinalizacion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fechaFinalizacion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@duracion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="duracion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idResultado, nGenes, genes, media, acierto, desviacionEstandard, mediana, fechaLanzamiento, fechaFinalizacion, duracion FROM dbo.Resultados</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[Resultados] SET [idResultado] = @idResultado, [nGenes] = @nGenes, [genes] = @genes, [media] = @media, [acierto] = @acierto, [desviacionEstandard] = @desviacionEstandard, [mediana] = @mediana, [fechaLanzamiento] = @fechaLanzamiento, [fechaFinalizacion] = @fechaFinalizacion, [duracion] = @duracion WHERE (([idResultado] = @Original_idResultado) AND ([nGenes] = @Original_nGenes) AND ([media] = @Original_media) AND ([acierto] = @Original_acierto) AND ([desviacionEstandard] = @Original_desviacionEstandard) AND ([mediana] = @Original_mediana) AND ((@IsNull_fechaLanzamiento = 1 AND [fechaLanzamiento] IS NULL) OR ([fechaLanzamiento] = @Original_fechaLanzamiento)) AND ((@IsNull_fechaFinalizacion = 1 AND [fechaFinalizacion] IS NULL) OR ([fechaFinalizacion] = @Original_fechaFinalizacion)) AND ((@IsNull_duracion = 1 AND [duracion] IS NULL) OR ([duracion] = @Original_duracion)));
+SELECT idResultado, nGenes, genes, media, acierto, desviacionEstandard, mediana, fechaLanzamiento, fechaFinalizacion, duracion FROM Resultados WHERE (idResultado = @idResultado)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@idResultado" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idResultado" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@nGenes" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nGenes" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Binary" Direction="Input" ParameterName="@genes" Precision="0" ProviderType="Image" Scale="0" Size="0" SourceColumn="genes" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@media" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="media" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@acierto" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="acierto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@desviacionEstandard" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="desviacionEstandard" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@mediana" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="mediana" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@fechaLanzamiento" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fechaLanzamiento" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@fechaFinalizacion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fechaFinalizacion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@duracion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="duracion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_idResultado" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="idResultado" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_nGenes" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nGenes" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_media" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="media" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_acierto" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="acierto" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_desviacionEstandard" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="desviacionEstandard" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_mediana" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="mediana" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_fechaLanzamiento" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="fechaLanzamiento" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_fechaLanzamiento" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fechaLanzamiento" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_fechaFinalizacion" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="fechaFinalizacion" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_fechaFinalizacion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fechaFinalizacion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_duracion" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="duracion" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_duracion" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="duracion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idResultado" DataSetColumn="idResultado" />
+              <Mapping SourceColumn="nGenes" DataSetColumn="nGenes" />
+              <Mapping SourceColumn="genes" DataSetColumn="genes" />
+              <Mapping SourceColumn="media" DataSetColumn="media" />
+              <Mapping SourceColumn="acierto" DataSetColumn="acierto" />
+              <Mapping SourceColumn="desviacionEstandard" DataSetColumn="desviacionEstandard" />
+              <Mapping SourceColumn="mediana" DataSetColumn="mediana" />
+              <Mapping SourceColumn="fechaLanzamiento" DataSetColumn="fechaLanzamiento" />
+              <Mapping SourceColumn="fechaFinalizacion" DataSetColumn="fechaFinalizacion" />
+              <Mapping SourceColumn="duracion" DataSetColumn="duracion" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -145,6 +686,7 @@ SELECT idEstadoSimulacion, nombre, descripcion, nombreCorto FROM EstadoSimulacio
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="idSimulacion" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnidSimulacion" msprop:Generator_ColumnPropNameInRow="idSimulacion" msprop:Generator_ColumnPropNameInTable="idSimulacionColumn" msprop:Generator_UserColumnName="idSimulacion" type="xs:string" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -176,11 +718,261 @@ SELECT idEstadoSimulacion, nombre, descripcion, nombreCorto FROM EstadoSimulacio
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="Simulacion" msprop:Generator_TableClassName="SimulacionDataTable" msprop:Generator_TableVarName="tableSimulacion" msprop:Generator_TablePropName="Simulacion" msprop:Generator_RowDeletingName="SimulacionRowDeleting" msprop:Generator_UserTableName="Simulacion" msprop:Generator_RowChangingName="SimulacionRowChanging" msprop:Generator_RowEvHandlerName="SimulacionRowChangeEventHandler" msprop:Generator_RowDeletedName="SimulacionRowDeleted" msprop:Generator_RowEvArgName="SimulacionRowChangeEvent" msprop:Generator_RowChangedName="SimulacionRowChanged" msprop:Generator_RowClassName="SimulacionRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idSimulacion" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnidSimulacion" msprop:Generator_ColumnPropNameInRow="idSimulacion" msprop:Generator_ColumnPropNameInTable="idSimulacionColumn" msprop:Generator_UserColumnName="idSimulacion" type="xs:string" />
+              <xs:element name="idProyecto" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnidProyecto" msprop:Generator_ColumnPropNameInRow="idProyecto" msprop:Generator_ColumnPropNameInTable="idProyectoColumn" msprop:Generator_UserColumnName="idProyecto" type="xs:string" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_UserColumnName="descripcion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fechaCreacion" msprop:Generator_ColumnVarNameInTable="columnfechaCreacion" msprop:Generator_ColumnPropNameInRow="fechaCreacion" msprop:Generator_ColumnPropNameInTable="fechaCreacionColumn" msprop:Generator_UserColumnName="fechaCreacion" type="xs:dateTime" />
+              <xs:element name="idMetodoSeleccion" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnidMetodoSeleccion" msprop:Generator_ColumnPropNameInRow="idMetodoSeleccion" msprop:Generator_ColumnPropNameInTable="idMetodoSeleccionColumn" msprop:Generator_UserColumnName="idMetodoSeleccion" type="xs:string" />
+              <xs:element name="idMetodoClasificacion" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnidMetodoClasificacion" msprop:Generator_ColumnPropNameInRow="idMetodoClasificacion" msprop:Generator_ColumnPropNameInTable="idMetodoClasificacionColumn" msprop:Generator_UserColumnName="idMetodoClasificacion" type="xs:string" />
+              <xs:element name="idEstadoSimulacion" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnidEstadoSimulacion" msprop:Generator_ColumnPropNameInRow="idEstadoSimulacion" msprop:Generator_ColumnPropNameInTable="idEstadoSimulacionColumn" msprop:Generator_UserColumnName="idEstadoSimulacion" type="xs:string" />
+              <xs:element name="parametrosSeleccion" msprop:Generator_ColumnVarNameInTable="columnparametrosSeleccion" msprop:Generator_ColumnPropNameInRow="parametrosSeleccion" msprop:Generator_ColumnPropNameInTable="parametrosSeleccionColumn" msprop:Generator_UserColumnName="parametrosSeleccion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="parametrosClasificacion" msprop:Generator_ColumnVarNameInTable="columnparametrosClasificacion" msprop:Generator_ColumnPropNameInRow="parametrosClasificacion" msprop:Generator_ColumnPropNameInTable="parametrosClasificacionColumn" msprop:Generator_UserColumnName="parametrosClasificacion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="usuario" msprop:Generator_ColumnVarNameInTable="columnusuario" msprop:Generator_ColumnPropNameInRow="usuario" msprop:Generator_ColumnPropNameInTable="usuarioColumn" msprop:Generator_UserColumnName="usuario">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Archivo" msprop:Generator_TableClassName="ArchivoDataTable" msprop:Generator_TableVarName="tableArchivo" msprop:Generator_TablePropName="Archivo" msprop:Generator_RowDeletingName="ArchivoRowDeleting" msprop:Generator_UserTableName="Archivo" msprop:Generator_RowChangingName="ArchivoRowChanging" msprop:Generator_RowEvHandlerName="ArchivoRowChangeEventHandler" msprop:Generator_RowDeletedName="ArchivoRowDeleted" msprop:Generator_RowEvArgName="ArchivoRowChangeEvent" msprop:Generator_RowChangedName="ArchivoRowChanged" msprop:Generator_RowClassName="ArchivoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idArchivo" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnidArchivo" msprop:Generator_ColumnPropNameInRow="idArchivo" msprop:Generator_ColumnPropNameInTable="idArchivoColumn" msprop:Generator_UserColumnName="idArchivo" type="xs:string" />
+              <xs:element name="idCarpeta" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnidCarpeta" msprop:Generator_ColumnPropNameInRow="idCarpeta" msprop:Generator_ColumnPropNameInTable="idCarpetaColumn" msprop:Generator_UserColumnName="idCarpeta" type="xs:string" />
+              <xs:element name="usuario" msprop:Generator_ColumnVarNameInTable="columnusuario" msprop:Generator_ColumnPropNameInRow="usuario" msprop:Generator_ColumnPropNameInTable="usuarioColumn" msprop:Generator_UserColumnName="usuario">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="publico" msprop:Generator_ColumnVarNameInTable="columnpublico" msprop:Generator_ColumnPropNameInRow="publico" msprop:Generator_ColumnPropNameInTable="publicoColumn" msprop:Generator_UserColumnName="publico" type="xs:boolean" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="content_x002F_type" msprop:Generator_ColumnVarNameInTable="_columncontent_type" msprop:Generator_ColumnPropNameInRow="_content_type" msprop:Generator_ColumnPropNameInTable="_content_typeColumn" msprop:Generator_UserColumnName="content/type">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="datos" msprop:Generator_ColumnVarNameInTable="columndatos" msprop:Generator_ColumnPropNameInRow="datos" msprop:Generator_ColumnPropNameInTable="datosColumn" msprop:Generator_UserColumnName="datos" type="xs:base64Binary" />
+              <xs:element name="fechaCreacion" msprop:Generator_ColumnVarNameInTable="columnfechaCreacion" msprop:Generator_ColumnPropNameInRow="fechaCreacion" msprop:Generator_ColumnPropNameInTable="fechaCreacionColumn" msprop:Generator_UserColumnName="fechaCreacion" type="xs:dateTime" />
+              <xs:element name="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_UserColumnName="descripcion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="baseDatos" msprop:Generator_ColumnVarNameInTable="columnbaseDatos" msprop:Generator_ColumnPropNameInRow="baseDatos" msprop:Generator_ColumnPropNameInTable="baseDatosColumn" msprop:Generator_UserColumnName="baseDatos" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Carpeta" msprop:Generator_TableClassName="CarpetaDataTable" msprop:Generator_TableVarName="tableCarpeta" msprop:Generator_TablePropName="Carpeta" msprop:Generator_RowDeletingName="CarpetaRowDeleting" msprop:Generator_UserTableName="Carpeta" msprop:Generator_RowChangingName="CarpetaRowChanging" msprop:Generator_RowEvHandlerName="CarpetaRowChangeEventHandler" msprop:Generator_RowDeletedName="CarpetaRowDeleted" msprop:Generator_RowEvArgName="CarpetaRowChangeEvent" msprop:Generator_RowChangedName="CarpetaRowChanged" msprop:Generator_RowClassName="CarpetaRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idCarpeta" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnidCarpeta" msprop:Generator_ColumnPropNameInRow="idCarpeta" msprop:Generator_ColumnPropNameInTable="idCarpetaColumn" msprop:Generator_UserColumnName="idCarpeta" type="xs:string" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idPadre" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnidPadre" msprop:Generator_ColumnPropNameInRow="idPadre" msprop:Generator_ColumnPropNameInTable="idPadreColumn" msprop:Generator_UserColumnName="idPadre" type="xs:string" minOccurs="0" />
+              <xs:element name="usuario" msprop:Generator_ColumnVarNameInTable="columnusuario" msprop:Generator_ColumnPropNameInRow="usuario" msprop:Generator_ColumnPropNameInTable="usuarioColumn" msprop:Generator_UserColumnName="usuario">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fechaCreac_x00A1_on" msprop:Generator_ColumnVarNameInTable="_columnfechaCreac_on" msprop:Generator_ColumnPropNameInRow="_fechaCreac_on" msprop:Generator_ColumnPropNameInTable="_fechaCreac_onColumn" msprop:Generator_UserColumnName="fechaCreac¡on" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MetodoClasificacion" msprop:Generator_TableClassName="MetodoClasificacionDataTable" msprop:Generator_TableVarName="tableMetodoClasificacion" msprop:Generator_TablePropName="MetodoClasificacion" msprop:Generator_RowDeletingName="MetodoClasificacionRowDeleting" msprop:Generator_UserTableName="MetodoClasificacion" msprop:Generator_RowChangingName="MetodoClasificacionRowChanging" msprop:Generator_RowEvHandlerName="MetodoClasificacionRowChangeEventHandler" msprop:Generator_RowDeletedName="MetodoClasificacionRowDeleted" msprop:Generator_RowEvArgName="MetodoClasificacionRowChangeEvent" msprop:Generator_RowChangedName="MetodoClasificacionRowChanged" msprop:Generator_RowClassName="MetodoClasificacionRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idMetodoClasificacion" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnidMetodoClasificacion" msprop:Generator_ColumnPropNameInRow="idMetodoClasificacion" msprop:Generator_ColumnPropNameInTable="idMetodoClasificacionColumn" msprop:Generator_UserColumnName="idMetodoClasificacion" type="xs:string" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_UserColumnName="descripcion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="parametrosDefecto" msprop:Generator_ColumnVarNameInTable="columnparametrosDefecto" msprop:Generator_ColumnPropNameInRow="parametrosDefecto" msprop:Generator_ColumnPropNameInTable="parametrosDefectoColumn" msprop:Generator_UserColumnName="parametrosDefecto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MetodoSeleccion" msprop:Generator_TableClassName="MetodoSeleccionDataTable" msprop:Generator_TableVarName="tableMetodoSeleccion" msprop:Generator_TablePropName="MetodoSeleccion" msprop:Generator_RowDeletingName="MetodoSeleccionRowDeleting" msprop:Generator_UserTableName="MetodoSeleccion" msprop:Generator_RowChangingName="MetodoSeleccionRowChanging" msprop:Generator_RowEvHandlerName="MetodoSeleccionRowChangeEventHandler" msprop:Generator_RowDeletedName="MetodoSeleccionRowDeleted" msprop:Generator_RowEvArgName="MetodoSeleccionRowChangeEvent" msprop:Generator_RowChangedName="MetodoSeleccionRowChanged" msprop:Generator_RowClassName="MetodoSeleccionRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idMetodoSeleccion" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnidMetodoSeleccion" msprop:Generator_ColumnPropNameInRow="idMetodoSeleccion" msprop:Generator_ColumnPropNameInTable="idMetodoSeleccionColumn" msprop:Generator_UserColumnName="idMetodoSeleccion" type="xs:string" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_UserColumnName="descripcion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="parametrosDefecto" msprop:Generator_ColumnVarNameInTable="columnparametrosDefecto" msprop:Generator_ColumnPropNameInRow="parametrosDefecto" msprop:Generator_ColumnPropNameInTable="parametrosDefectoColumn" msprop:Generator_UserColumnName="parametrosDefecto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Proyecto" msprop:Generator_TableClassName="ProyectoDataTable" msprop:Generator_TableVarName="tableProyecto" msprop:Generator_TablePropName="Proyecto" msprop:Generator_RowDeletingName="ProyectoRowDeleting" msprop:Generator_UserTableName="Proyecto" msprop:Generator_RowChangingName="ProyectoRowChanging" msprop:Generator_RowEvHandlerName="ProyectoRowChangeEventHandler" msprop:Generator_RowDeletedName="ProyectoRowDeleted" msprop:Generator_RowEvArgName="ProyectoRowChangeEvent" msprop:Generator_RowChangedName="ProyectoRowChanged" msprop:Generator_RowClassName="ProyectoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idProyecto" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnidProyecto" msprop:Generator_ColumnPropNameInRow="idProyecto" msprop:Generator_ColumnPropNameInTable="idProyectoColumn" msprop:Generator_UserColumnName="idProyecto" type="xs:string" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_UserColumnName="descripcion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fechaUltimaSimulacion" msprop:Generator_ColumnVarNameInTable="columnfechaUltimaSimulacion" msprop:Generator_ColumnPropNameInRow="fechaUltimaSimulacion" msprop:Generator_ColumnPropNameInTable="fechaUltimaSimulacionColumn" msprop:Generator_UserColumnName="fechaUltimaSimulacion" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fechaCreacion" msprop:Generator_ColumnVarNameInTable="columnfechaCreacion" msprop:Generator_ColumnPropNameInRow="fechaCreacion" msprop:Generator_ColumnPropNameInTable="fechaCreacionColumn" msprop:Generator_UserColumnName="fechaCreacion" type="xs:dateTime" />
+              <xs:element name="idArchivo" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnidArchivo" msprop:Generator_ColumnPropNameInRow="idArchivo" msprop:Generator_ColumnPropNameInTable="idArchivoColumn" msprop:Generator_UserColumnName="idArchivo" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Resultados" msprop:Generator_TableClassName="ResultadosDataTable" msprop:Generator_TableVarName="tableResultados" msprop:Generator_TablePropName="Resultados" msprop:Generator_RowDeletingName="ResultadosRowDeleting" msprop:Generator_UserTableName="Resultados" msprop:Generator_RowChangingName="ResultadosRowChanging" msprop:Generator_RowEvHandlerName="ResultadosRowChangeEventHandler" msprop:Generator_RowDeletedName="ResultadosRowDeleted" msprop:Generator_RowEvArgName="ResultadosRowChangeEvent" msprop:Generator_RowChangedName="ResultadosRowChanged" msprop:Generator_RowClassName="ResultadosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idResultado" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnidResultado" msprop:Generator_ColumnPropNameInRow="idResultado" msprop:Generator_ColumnPropNameInTable="idResultadoColumn" msprop:Generator_UserColumnName="idResultado" type="xs:string" />
+              <xs:element name="nGenes" msprop:Generator_ColumnVarNameInTable="columnnGenes" msprop:Generator_ColumnPropNameInRow="nGenes" msprop:Generator_ColumnPropNameInTable="nGenesColumn" msprop:Generator_UserColumnName="nGenes" type="xs:int" />
+              <xs:element name="genes" msprop:Generator_ColumnVarNameInTable="columngenes" msprop:Generator_ColumnPropNameInRow="genes" msprop:Generator_ColumnPropNameInTable="genesColumn" msprop:Generator_UserColumnName="genes" type="xs:base64Binary" />
+              <xs:element name="media" msprop:Generator_ColumnVarNameInTable="columnmedia" msprop:Generator_ColumnPropNameInRow="media" msprop:Generator_ColumnPropNameInTable="mediaColumn" msprop:Generator_UserColumnName="media" type="xs:double" />
+              <xs:element name="acierto" msprop:Generator_ColumnVarNameInTable="columnacierto" msprop:Generator_ColumnPropNameInRow="acierto" msprop:Generator_ColumnPropNameInTable="aciertoColumn" msprop:Generator_UserColumnName="acierto" type="xs:double" />
+              <xs:element name="desviacionEstandard" msprop:Generator_ColumnVarNameInTable="columndesviacionEstandard" msprop:Generator_ColumnPropNameInRow="desviacionEstandard" msprop:Generator_ColumnPropNameInTable="desviacionEstandardColumn" msprop:Generator_UserColumnName="desviacionEstandard" type="xs:double" />
+              <xs:element name="mediana" msprop:Generator_ColumnVarNameInTable="columnmediana" msprop:Generator_ColumnPropNameInRow="mediana" msprop:Generator_ColumnPropNameInTable="medianaColumn" msprop:Generator_UserColumnName="mediana" type="xs:double" />
+              <xs:element name="fechaLanzamiento" msprop:Generator_ColumnVarNameInTable="columnfechaLanzamiento" msprop:Generator_ColumnPropNameInRow="fechaLanzamiento" msprop:Generator_ColumnPropNameInTable="fechaLanzamientoColumn" msprop:Generator_UserColumnName="fechaLanzamiento" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fechaFinalizacion" msprop:Generator_ColumnVarNameInTable="columnfechaFinalizacion" msprop:Generator_ColumnPropNameInRow="fechaFinalizacion" msprop:Generator_ColumnPropNameInTable="fechaFinalizacionColumn" msprop:Generator_UserColumnName="fechaFinalizacion" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="duracion" msprop:Generator_ColumnVarNameInTable="columnduracion" msprop:Generator_ColumnPropNameInRow="duracion" msprop:Generator_ColumnPropNameInTable="duracionColumn" msprop:Generator_UserColumnName="duracion" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:VistaSimulación" />
+      <xs:field xpath="mstns:idSimulacion" />
+    </xs:unique>
+    <xs:unique name="EstadoSimulacion_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:EstadoSimulacion" />
       <xs:field xpath="mstns:idEstadoSimulacion" />
     </xs:unique>
+    <xs:unique name="Simulacion_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Simulacion" />
+      <xs:field xpath="mstns:idSimulacion" />
+    </xs:unique>
+    <xs:unique name="Archivo_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Archivo" />
+      <xs:field xpath="mstns:idArchivo" />
+    </xs:unique>
+    <xs:unique name="Carpeta_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Carpeta" />
+      <xs:field xpath="mstns:idCarpeta" />
+    </xs:unique>
+    <xs:unique name="MetodoClasificacion_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:MetodoClasificacion" />
+      <xs:field xpath="mstns:idMetodoClasificacion" />
+    </xs:unique>
+    <xs:unique name="MetodoSeleccion_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:MetodoSeleccion" />
+      <xs:field xpath="mstns:idMetodoSeleccion" />
+    </xs:unique>
+    <xs:unique name="Proyecto_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Proyecto" />
+      <xs:field xpath="mstns:idProyecto" />
+    </xs:unique>
+    <xs:unique name="Resultados_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Resultados" />
+      <xs:field xpath="mstns:idResultado" />
+    </xs:unique>
   </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="FK_Simulacion_MetodoClasificacion" msdata:parent="MetodoClasificacion" msdata:child="Simulacion" msdata:parentkey="idMetodoClasificacion" msdata:childkey="idMetodoClasificacion" msprop:Generator_UserChildTable="Simulacion" msprop:Generator_ChildPropName="GetSimulacionRows" msprop:Generator_ParentPropName="MetodoClasificacionRow" msprop:Generator_UserRelationName="FK_Simulacion_MetodoClasificacion" msprop:Generator_RelationVarName="relationFK_Simulacion_MetodoClasificacion" msprop:Generator_UserParentTable="MetodoClasificacion" />
+      <msdata:Relationship name="FK_Simulacion_MetodoSeleccion" msdata:parent="MetodoSeleccion" msdata:child="Simulacion" msdata:parentkey="idMetodoSeleccion" msdata:childkey="idMetodoSeleccion" msprop:Generator_UserChildTable="Simulacion" msprop:Generator_ChildPropName="GetSimulacionRows" msprop:Generator_ParentPropName="MetodoSeleccionRow" msprop:Generator_UserRelationName="FK_Simulacion_MetodoSeleccion" msprop:Generator_RelationVarName="relationFK_Simulacion_MetodoSeleccion" msprop:Generator_UserParentTable="MetodoSeleccion" />
+      <msdata:Relationship name="FK_Simulacion_Proyecto" msdata:parent="Proyecto" msdata:child="Simulacion" msdata:parentkey="idProyecto" msdata:childkey="idProyecto" msprop:Generator_UserChildTable="Simulacion" msprop:Generator_ChildPropName="GetSimulacionRows" msprop:Generator_ParentPropName="ProyectoRow" msprop:Generator_UserRelationName="FK_Simulacion_Proyecto" msprop:Generator_RelationVarName="relationFK_Simulacion_Proyecto" msprop:Generator_UserParentTable="Proyecto" />
+      <msdata:Relationship name="FK_Archivo_Carpeta" msdata:parent="Carpeta" msdata:child="Archivo" msdata:parentkey="idCarpeta" msdata:childkey="idCarpeta" msprop:Generator_UserChildTable="Archivo" msprop:Generator_ChildPropName="GetArchivoRows" msprop:Generator_ParentPropName="CarpetaRow" msprop:Generator_UserRelationName="FK_Archivo_Carpeta" msprop:Generator_RelationVarName="relationFK_Archivo_Carpeta" msprop:Generator_UserParentTable="Carpeta" />
+      <msdata:Relationship name="FK_Carpeta_Padre" msdata:parent="Carpeta" msdata:child="Carpeta" msdata:parentkey="idCarpeta" msdata:childkey="idPadre" msprop:Generator_UserChildTable="Carpeta" msprop:Generator_ChildPropName="GetCarpetaRows" msprop:Generator_UserParentTable="Carpeta" msprop:Generator_UserRelationName="FK_Carpeta_Padre" msprop:Generator_RelationVarName="relationFK_Carpeta_Padre" msprop:Generator_ParentPropName="CarpetaRowParent" />
+      <msdata:Relationship name="FK_Proyecto_Archivo" msdata:parent="Archivo" msdata:child="Proyecto" msdata:parentkey="idArchivo" msdata:childkey="idArchivo" msprop:Generator_UserChildTable="Proyecto" msprop:Generator_ChildPropName="GetProyectoRows" msprop:Generator_ParentPropName="ArchivoRow" msprop:Generator_UserRelationName="FK_Proyecto_Archivo" msprop:Generator_RelationVarName="relationFK_Proyecto_Archivo" msprop:Generator_UserParentTable="Archivo" />
+      <msdata:Relationship name="FK_Resultados_Simulacion" msdata:parent="Simulacion" msdata:child="Resultados" msdata:parentkey="idSimulacion" msdata:childkey="idResultado" msprop:Generator_UserChildTable="Resultados" msprop:Generator_ChildPropName="GetResultadosRows" msprop:Generator_ParentPropName="SimulacionRow" msprop:Generator_UserRelationName="FK_Resultados_Simulacion" msprop:Generator_RelationVarName="relationFK_Resultados_Simulacion" msprop:Generator_UserParentTable="Simulacion" />
+      <msdata:Relationship name="FK_Simulacion_EstadoSimulacion" msdata:parent="EstadoSimulacion" msdata:child="Simulacion" msdata:parentkey="idEstadoSimulacion" msdata:childkey="idEstadoSimulacion" msprop:Generator_UserChildTable="Simulacion" msprop:Generator_ChildPropName="GetSimulacionRows" msprop:Generator_ParentPropName="EstadoSimulacionRow" msprop:Generator_UserRelationName="FK_Simulacion_EstadoSimulacion" msprop:Generator_RelationVarName="relationFK_Simulacion_EstadoSimulacion" msprop:Generator_UserParentTable="EstadoSimulacion" />
+    </xs:appinfo>
+  </xs:annotation>
 </xs:schema>
