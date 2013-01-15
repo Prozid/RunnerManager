@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="runnerManager, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <ExecutableExtension>.exe</ExecutableExtension>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
@@ -48,6 +51,54 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormClasificationMethod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormClasificationMethod.Designer.cs">
+      <DependentUpon>FormClasificationMethod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormClasificationMethodsGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormClasificationMethodsGrid.Designer.cs">
+      <DependentUpon>FormClasificationMethodsGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSimulation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSimulation.Designer.cs">
+      <DependentUpon>FormSimulation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSimulationState.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSimulationState.Designer.cs">
+      <DependentUpon>FormSimulationState.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLog.Designer.cs">
+      <DependentUpon>FormLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSelectionMethod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSelectionMethod.Designer.cs">
+      <DependentUpon>FormSelectionMethod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSelectionMethodsGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSelectionMethodsGrid.Designer.cs">
+      <DependentUpon>FormSelectionMethodsGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSimulationStatesGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSimulationStatesGrid.Designer.cs">
+      <DependentUpon>FormSimulationStatesGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="runnerManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,12 +107,45 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FormSimulationsGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSimulationsGrid.Designer.cs">
+      <DependentUpon>FormSimulationsGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="WebappDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>WebappDBDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormClasificationMethod.resx">
+      <DependentUpon>FormClasificationMethod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormClasificationMethodsGrid.resx">
+      <DependentUpon>FormClasificationMethodsGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSimulation.resx">
+      <DependentUpon>FormSimulation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSimulationState.resx">
+      <DependentUpon>FormSimulationState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLog.resx">
+      <DependentUpon>FormLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSelectionMethod.resx">
+      <DependentUpon>FormSelectionMethod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSelectionMethodsGrid.resx">
+      <DependentUpon>FormSelectionMethodsGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSimulationsGrid.resx">
+      <DependentUpon>FormSimulationsGrid.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
+    <EmbeddedResource Include="FormSimulationStatesGrid.resx">
+      <DependentUpon>FormSimulationStatesGrid.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="runnerManagerForm.resx">
       <DependentUpon>runnerManagerForm.cs</DependentUpon>
     </EmbeddedResource>
