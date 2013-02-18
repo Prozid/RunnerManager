@@ -1,13 +1,3 @@
-C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\bin\Debug\runnerManager.exe
-C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\bin\Debug\runnerManager.pdb
-C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\runnerManager.runnerManagerForm.resources
-C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\runnerManager.Properties.Resources.resources
-C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\runnerManager.exe
-C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\runnerManager.pdb
-C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\bin\Debug\runnerManager.exe.config
-C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\GenerateResource.read.1.tlog
-C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Datos\Contenidos\Cosicas\RunnerManager\bin\Debug\runnerManager.exe.config
 C:\Datos\Contenidos\Cosicas\RunnerManager\bin\Debug\runnerManager.pdb
 C:\Datos\Contenidos\Cosicas\RunnerManager\obj\x86\Debug\ResolveAssemblyReference.cache
@@ -26,3 +16,21 @@ C:\Datos\Contenidos\Cosicas\RunnerManager\obj\x86\Debug\GenerateResource.read.1.
 C:\Datos\Contenidos\Cosicas\RunnerManager\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Datos\Contenidos\Cosicas\RunnerManager\obj\x86\Debug\runnerManager.exe
 C:\Datos\Contenidos\Cosicas\RunnerManager\obj\x86\Debug\runnerManager.pdb
+C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\runnerManager.csprojResolveAssemblyReference.cache
+C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\runnerManager.FormClasificationMethod.resources
+C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\runnerManager.FormClasificationMethodsGrid.resources
+C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\runnerManager.FormSimulation.resources
+C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\runnerManager.FormSimulationState.resources
+C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\runnerManager.FormLog.resources
+C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\runnerManager.FormSelectionMethod.resources
+C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\runnerManager.FormSelectionMethodsGrid.resources
+C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\runnerManager.FormSimulationsGrid.resources
+C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\runnerManager.FormSimulationStatesGrid.resources
+C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\runnerManager.runnerManagerForm.resources
+C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\runnerManager.Properties.Resources.resources
+C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\runnerManager.csproj.GenerateResource.Cache
+C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\bin\Debug\runnerManager.exe.config
+C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\bin\Debug\runnerManager.exe
+C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\bin\Debug\runnerManager.pdb
+C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\runnerManager.exe
+C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\runnerManager.pdb
