@@ -23,6 +23,8 @@ namespace runnerManager
             // TODO: esta línea de código carga datos en la tabla 'webappDBDataSet.VistaSimulación' Puede moverla o quitarla según sea necesario.
             this.vistaSimulaciónTableAdapter.Fill(this.webappDBDataSet.VistaSimulación);
 
+            this.simulacionTableAdapter.Fill(this.webappDBDataSet.Simulacion);
+
         }
 
         private void changeState_button_Click(object sender, EventArgs e)
@@ -39,24 +41,16 @@ namespace runnerManager
             WebappDBDataSet.SimulacionRow simulation;
             String oldEs, newEs;
 
-
             // Iteramos entre las filas seleccionadas
             foreach (DataGridViewRow f in filas)
             {
+                Guid gRow = (Guid)f.Cells["idSimulacion"].Value;
                 // Obtenemos la simulacion
-                simulation = webappDBDataSet.Simulacion
-                    .Where(
-                        s =>
-                        s.idSimulacion
-                            .Equals(
-                            (Guid)f.Cells["idSimulacion"].Value
-                        )
-                    )
-                    .Single();
+                simulation = webappDBDataSet.Simulacion.Where(sim => sim.idSimulacion.Equals(gRow)).Single();
 
                 // Guardamos los nombres de los estados para mostrarlos en el listBox
-                oldEs = simulation.EstadoSimulacionRow.nombre;
-                newEs = es.nombre;
+                oldEs = simulation.EstadoSimulacionRow.Nombre;
+                newEs = es.Nombre;
 
                 // Modificamos el estado de la simulacion
                 simulation.BeginEdit();
@@ -66,7 +60,8 @@ namespace runnerManager
                 try
                 {
                     // Guardamos los cambios
-                    simulacionTableAdapter1.Update(simulation);
+                    simulacionTableAdapter.Update(simulation);
+                    vistaSimulaciónTableAdapter.Fill(this.webappDBDataSet.VistaSimulación);
 
                     // Lo mostramos en el ListBox
                     //threadLog_listBox.Items.Add(simulation.nombre + ": " + oldEs + " a " + newEs);

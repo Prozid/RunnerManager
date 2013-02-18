@@ -52,12 +52,14 @@
             this.vistaSimulaciónBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vistaSimulaciónTableAdapter = new runnerManager.WebappDBDataSetTableAdapters.VistaSimulaciónTableAdapter();
             this.estadoSimulacionTableAdapter = new runnerManager.WebappDBDataSetTableAdapters.EstadoSimulacionTableAdapter();
-            this.simulacionTableAdapter1 = new runnerManager.WebappDBDataSetTableAdapters.SimulacionTableAdapter();
+            this.simulacionTableAdapter = new runnerManager.WebappDBDataSetTableAdapters.SimulacionTableAdapter();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.SimStates_groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.estadoSimulacionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.webappDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vistaSimulaciónBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // SimStates_groupBox
@@ -262,9 +264,14 @@
             // 
             this.estadoSimulacionTableAdapter.ClearBeforeFill = true;
             // 
-            // simulacionTableAdapter1
+            // simulacionTableAdapter
             // 
-            this.simulacionTableAdapter1.ClearBeforeFill = true;
+            this.simulacionTableAdapter.ClearBeforeFill = true;
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataMember = "Simulacion";
+            this.bindingSource1.DataSource = this.webappDBDataSet;
             // 
             // FormSimulationsGrid
             // 
@@ -281,6 +288,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.webappDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vistaSimulaciónBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -310,6 +318,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idSimulacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource estadoSimulacionBindingSource;
         private WebappDBDataSetTableAdapters.EstadoSimulacionTableAdapter estadoSimulacionTableAdapter;
-        private WebappDBDataSetTableAdapters.SimulacionTableAdapter simulacionTableAdapter1;
+        private WebappDBDataSetTableAdapters.SimulacionTableAdapter simulacionTableAdapter;
+        private System.Windows.Forms.BindingSource bindingSource1;
     }
 }

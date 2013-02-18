@@ -28,13 +28,13 @@ namespace runnerManager
 
             WebappDBDataSet.EstadoSimulacionRow newState = webappDBDataSet.EstadoSimulacion.NewEstadoSimulacionRow();
             newState.idEstadoSimulacion = idState;
-            newState.nombre = txtNameState.Text;
-            newState.nombreCorto = txtShortNameState.Text;
+            newState.Nombre = txtNameState.Text;
+            newState.NombreCorto = txtShortNameState.Text;
             estadoSimulacionTableAdapter1.Insert(
                 newState.idEstadoSimulacion,
-                newState.nombre,
+                newState.Nombre,
                 "",
-                newState.nombreCorto
+                newState.NombreCorto
             );
             this.DialogResult = DialogResult.OK;
             this.Close();
