@@ -29,7 +29,8 @@ namespace runnerManager
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //Save();
+            Save();
+            this.Close();
         }
 
         private void Save()
@@ -41,6 +42,22 @@ namespace runnerManager
                 && cbxStateSimulation.SelectedValue != "")
             {
                 Guid idSimulation = Guid.NewGuid();
+                Guid idProyecto = Guid.Parse("F8489DBF-03A6-4EB1-B2B3-8FA5FD76A8E1"); // Provisional
+                DateTime creationDate = DateTime.Now;
+
+                WebappDBDataSetTableAdapters.SimulacionTableAdapter sta = new WebappDBDataSetTableAdapters.SimulacionTableAdapter();
+                sta.Insert(
+                    idSimulation,
+                    idProyecto, txtName.Text,
+                    txtDescription.Text,
+                    creationDate,
+                    (Guid)cbxSelection.SelectedValue,
+                    (Guid)cbxClasification.SelectedValue,
+                    (Guid)cbxStateSimulation.SelectedValue,
+                    txtArgsSelection.Text,
+                    txtArgsClasification.Text,
+                    txtUser.Text
+                ); 
 
 
             }
