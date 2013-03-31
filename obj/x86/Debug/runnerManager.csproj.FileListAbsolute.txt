@@ -34,3 +34,22 @@ C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\
 C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\bin\Debug\runnerManager.pdb
 C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\runnerManager.exe
 C:\Users\Dani\Documents\Visual Studio 2010\Projects\runnerManager\runnerManager\obj\x86\Debug\runnerManager.pdb
+D:\Proyecto\runnerManager\RunnerManager\bin\Debug\runnerManager.exe.config
+D:\Proyecto\runnerManager\RunnerManager\obj\x86\Debug\runnerManager.exe
+D:\Proyecto\runnerManager\RunnerManager\obj\x86\Debug\runnerManager.pdb
+D:\Proyecto\runnerManager\RunnerManager\bin\Debug\runnerManager.exe
+D:\Proyecto\runnerManager\RunnerManager\bin\Debug\runnerManager.pdb
+D:\Proyecto\runnerManager\RunnerManager\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Proyecto\runnerManager\RunnerManager\obj\x86\Debug\runnerManager.FormClasificationMethod.resources
+D:\Proyecto\runnerManager\RunnerManager\obj\x86\Debug\runnerManager.FormClasificationMethodsGrid.resources
+D:\Proyecto\runnerManager\RunnerManager\obj\x86\Debug\runnerManager.FormSimulation.resources
+D:\Proyecto\runnerManager\RunnerManager\obj\x86\Debug\runnerManager.FormSimulationState.resources
+D:\Proyecto\runnerManager\RunnerManager\obj\x86\Debug\runnerManager.FormLog.resources
+D:\Proyecto\runnerManager\RunnerManager\obj\x86\Debug\runnerManager.FormSelectionMethod.resources
+D:\Proyecto\runnerManager\RunnerManager\obj\x86\Debug\runnerManager.FormSelectionMethodsGrid.resources
+D:\Proyecto\runnerManager\RunnerManager\obj\x86\Debug\runnerManager.FormSimulationsGrid.resources
+D:\Proyecto\runnerManager\RunnerManager\obj\x86\Debug\runnerManager.FormSimulationStatesGrid.resources
+D:\Proyecto\runnerManager\RunnerManager\obj\x86\Debug\runnerManager.runnerManagerForm.resources
+D:\Proyecto\runnerManager\RunnerManager\obj\x86\Debug\runnerManager.Properties.Resources.resources
+D:\Proyecto\runnerManager\RunnerManager\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\Proyecto\runnerManager\RunnerManager\obj\x86\Debug\GenerateResource.write.1.tlog
