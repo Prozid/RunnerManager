@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace runnerManager
+namespace PBioManager
 {
     public partial class FormSelectionMethod : Form
     {
@@ -41,6 +41,7 @@ namespace runnerManager
         private void btnSave_Click(object sender, EventArgs e)
         {
             Save();
+            this.Close();
         }
     }
 }

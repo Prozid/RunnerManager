@@ -1,4 +1,4 @@
-﻿namespace runnerManager
+﻿namespace PBioManager
 {
     partial class FormSimulationState
     {
@@ -36,8 +36,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtShortNameState = new System.Windows.Forms.TextBox();
             this.bindingSourceSimulationStates = new System.Windows.Forms.BindingSource(this.components);
-            this.webappDBDataSet = new runnerManager.WebappDBDataSet();
-            this.estadoSimulacionTableAdapter1 = new runnerManager.WebappDBDataSetTableAdapters.EstadoSimulacionTableAdapter();
+            this.webappDBDataSet = new PBioManager.WebappDBDataSet();
+            this.estadoSimulacionTableAdapter1 = new PBioManager.WebappDBDataSetTableAdapters.EstadoSimulacionTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSimulationStates)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.webappDBDataSet)).BeginInit();
             this.SuspendLayout();

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace runnerManager
+namespace PBioManager
 {
     public partial class FormSimulationState : Form
     {
@@ -27,11 +27,11 @@ namespace runnerManager
             Guid idState = Guid.NewGuid();
 
             WebappDBDataSet.EstadoSimulacionRow newState = webappDBDataSet.EstadoSimulacion.NewEstadoSimulacionRow();
-            newState.idEstadoSimulacion = idState;
+            newState.IdEstadoSimulacion = idState;
             newState.Nombre = txtNameState.Text;
             newState.NombreCorto = txtShortNameState.Text;
             estadoSimulacionTableAdapter1.Insert(
-                newState.idEstadoSimulacion,
+                newState.IdEstadoSimulacion,
                 newState.Nombre,
                 "",
                 newState.NombreCorto

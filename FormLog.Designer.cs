@@ -1,4 +1,4 @@
-﻿namespace runnerManager
+﻿namespace PBioManager
 {
     partial class FormLog
     {

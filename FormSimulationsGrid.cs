@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace runnerManager
+namespace PBioManager
 {
     public partial class FormSimulationsGrid : Form
     {
@@ -21,7 +21,7 @@ namespace runnerManager
             // TODO: esta línea de código carga datos en la tabla 'webappDBDataSet.EstadoSimulacion' Puede moverla o quitarla según sea necesario.
             this.estadoSimulacionTableAdapter.Fill(this.webappDBDataSet.EstadoSimulacion);
             // TODO: esta línea de código carga datos en la tabla 'webappDBDataSet.VistaSimulación' Puede moverla o quitarla según sea necesario.
-            this.vistaSimulaciónTableAdapter.Fill(this.webappDBDataSet.VistaSimulación);
+            this.vistaSimulacionTableAdapter.Fill(this.webappDBDataSet.VistaSimulacion);
 
             this.simulacionTableAdapter.Fill(this.webappDBDataSet.Simulacion);
 
@@ -34,7 +34,7 @@ namespace runnerManager
             DataGridViewSelectedRowCollection filas = dataGridView1.SelectedRows;
 
             // Obtenemos el estado de simulación seleccionado en el combobox.
-            WebappDBDataSet.EstadoSimulacionRow es = webappDBDataSet.EstadoSimulacion.Where(state => state.idEstadoSimulacion.Equals(simStates_comboBox.SelectedValue)).Single();
+            WebappDBDataSet.EstadoSimulacionRow es = webappDBDataSet.EstadoSimulacion.Where(state => state.IdEstadoSimulacion.Equals(simStates_comboBox.SelectedValue)).Single();
 
 
             // Declaramos variables
@@ -44,9 +44,9 @@ namespace runnerManager
             // Iteramos entre las filas seleccionadas
             foreach (DataGridViewRow f in filas)
             {
-                Guid gRow = (Guid)f.Cells["idSimulacion"].Value;
+                Guid gRow = (Guid)f.Cells["IdSimulacion"].Value;
                 // Obtenemos la simulacion
-                simulation = webappDBDataSet.Simulacion.Where(sim => sim.idSimulacion.Equals(gRow)).Single();
+                simulation = webappDBDataSet.Simulacion.Where(sim => sim.IdSimulacion.Equals(gRow)).Single();
 
                 // Guardamos los nombres de los estados para mostrarlos en el listBox
                 oldEs = simulation.EstadoSimulacionRow.Nombre;
@@ -61,7 +61,7 @@ namespace runnerManager
                 {
                     // Guardamos los cambios
                     simulacionTableAdapter.Update(simulation);
-                    vistaSimulaciónTableAdapter.Fill(this.webappDBDataSet.VistaSimulación);
+                    vistaSimulacionTableAdapter.Fill(this.webappDBDataSet.VistaSimulacion);
 
                     // Lo mostramos en el ListBox
                     //threadLog_listBox.Items.Add(simulation.nombre + ": " + oldEs + " a " + newEs);
@@ -71,6 +71,23 @@ namespace runnerManager
                     MessageBox.Show("[CHANGE STATE] Error: " + exc, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Guid idSimulacion = (Guid)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
+            FormSimulation formSimulation = new FormSimulation(idSimulacion);
+
+            formSimulation.ShowDialog();
+
+            if (formSimulation.DialogResult.Equals(DialogResult.OK))
+            {
+                vistaSimulacionTableAdapter.Fill(this.webappDBDataSet.VistaSimulacion);
+                dataGridView1.Update();
+                dataGridView1.Refresh();                
+            }
+
+            formSimulation.Dispose();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace runnerManager
+﻿namespace PBioManager
 {
     partial class FormClasificationMethod
     {
@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.metodoClasificacionTableAdapter1 = new runnerManager.WebappDBDataSetTableAdapters.MetodoClasificacionTableAdapter();
+            this.metodoClasificacionTableAdapter1 = new PBioManager.WebappDBDataSetTableAdapters.MetodoClasificacionTableAdapter();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.webappDBDataSet = new runnerManager.WebappDBDataSet();
+            this.webappDBDataSet = new PBioManager.WebappDBDataSet();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.lblArgs = new System.Windows.Forms.Label();

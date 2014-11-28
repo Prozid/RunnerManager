@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace runnerManager
+namespace PBioManager
 {
     static class Program
     {
@@ -15,7 +15,7 @@ namespace runnerManager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new runnerManagerForm());
+            Application.Run(new PBioManagerForm());
         }
     }
 }

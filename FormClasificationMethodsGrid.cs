@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace runnerManager
+namespace PBioManager
 {
     public partial class FormClasificationMethodsGrid : Form
     {
@@ -21,6 +21,48 @@ namespace runnerManager
             // TODO: esta línea de código carga datos en la tabla 'webappDBDataSet.MetodoClasificacion' Puede moverla o quitarla según sea necesario.
             this.metodoClasificacionTableAdapter.Fill(this.webappDBDataSet.MetodoClasificacion);
 
+        }
+
+        private void SaveChanges()
+        {
+            metodoClasificacionTableAdapter.Update(webappDBDataSet.MetodoClasificacion);
+        }
+
+        private void CheckExit(object sender, FormClosingEventArgs e)
+        {
+            if (webappDBDataSet.HasChanges())
+            {
+                DialogResult resp = MessageBox.Show(
+                   "Do you want to save changes?",
+                   "Close",
+                   MessageBoxButtons.YesNoCancel,
+                   MessageBoxIcon.Question
+                );
+
+                if (resp.Equals(DialogResult.Yes))
+                    SaveChanges();
+                else if (resp.Equals(DialogResult.Cancel))
+                    e.Cancel = true;
+            }
+        }
+
+        /*
+         * EVENTOS
+         */
+        private void FormClasificationMethodsGrid_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            CheckExit(sender, e);
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            SaveChanges();
+            this.Close();
+        }
+
+        private void btnDiscard_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

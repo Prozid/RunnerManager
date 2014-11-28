@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "runnerManager", "runnerManager.csproj", "{9F818C87-FE39-456E-B5BD-BB78D562924A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PBioManager", "PBioManager.csproj", "{9F818C87-FE39-456E-B5BD-BB78D562924A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

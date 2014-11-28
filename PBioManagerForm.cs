@@ -12,42 +12,56 @@ using System.Xml.Linq;
 using System.Threading;
 using System.Data.SqlClient;
 
-namespace runnerManager
+namespace PBioManager
 {
-    public partial class runnerManagerForm : Form
+    public partial class PBioManagerForm : Form
     {
         private System.ServiceProcess.ServiceController sc;
         private int conexionesServidos;
 
-        public runnerManagerForm()
+        public PBioManagerForm()
         {
             InitializeComponent();
-            //sc = new System.ServiceProcess.ServiceController("runnerService");
+            try
+            {
+                sc = new System.ServiceProcess.ServiceController("PBioSvc");
+            }
+            catch{
+                sc = null;
+            }
             conexionesServidos = 0;                     
             timerUpdateSimGrid.Start();
         }
 
         private void timerUpdateSimGrid_Tick(object sender, EventArgs e)
         {
-            setDisplay();
+            if (sc != null) sc.Refresh();
+            setDisplay();            
             //vistaSimulacionTableAdapter.Fill(this.webappDBDataSet.VistaSimulación);
             simsState_toolStripStatusLabel.Text = DateTime.Now.ToShortTimeString();
         }
  
         private void setDisplay()
-        {/*
-            svcState_toolStripStatusLabel.Text = sc.Status.ToString();
-            if (sc.Status == System.ServiceProcess.ServiceControllerStatus.Running)
+        {
+            if (sc != null)
             {
-                startsvc_button.Enabled = false;
-                stopsvc_button.Enabled = true;
+                svcState_toolStripStatusLabel.Text = sc.Status.ToString();
+
+                if (sc.Status == System.ServiceProcess.ServiceControllerStatus.Running)
+                {
+                    this.runToolStripMenuItem.Enabled = false;
+                    this.stopToolStripMenuItem.Enabled = true;
+                }
+                else
+                {
+                    this.runToolStripMenuItem.Enabled = true;
+                    this.stopToolStripMenuItem.Enabled = false;
+                }
             }
             else
             {
-                startsvc_button.Enabled = true;
-                stopsvc_button.Enabled = false;
+                svcState_toolStripStatusLabel.Text = "Unknown";
             }
-          */ 
         }
 
         /* EVENTOS
@@ -107,6 +121,30 @@ namespace runnerManager
             FormSelectionMethodsGrid sForm = new FormSelectionMethodsGrid();
             sForm.MdiParent = this;
             sForm.Show();
+        }
+
+        private void runToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (sc.Status != System.ServiceProcess.ServiceControllerStatus.Running)
+            {
+                sc.Start();
+            }
+        }
+
+        private void stopToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (sc.Status == System.ServiceProcess.ServiceControllerStatus.Running)
+            {
+                try
+                {
+                    sc.Stop();
+                }
+                catch
+                {
+                  
+                }
+            }
+
         }
     }
 }

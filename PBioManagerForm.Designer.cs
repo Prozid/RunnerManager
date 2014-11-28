@@ -1,6 +1,6 @@
-﻿namespace runnerManager
+﻿namespace PBioManager
 {
-    partial class runnerManagerForm
+    partial class PBioManagerForm
     {
         /// <summary>
         /// Variable del diseñador requerida.
@@ -38,6 +38,9 @@
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.serviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.runToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.simulaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,10 +57,6 @@
             this.selectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.gridToolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.serviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.runToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -133,6 +132,31 @@
             this.menuStrip.Size = new System.Drawing.Size(1148, 24);
             this.menuStrip.TabIndex = 8;
             this.menuStrip.Text = "menuStrip1";
+            // 
+            // serviceToolStripMenuItem
+            // 
+            this.serviceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.runToolStripMenuItem,
+            this.stopToolStripMenuItem});
+            this.serviceToolStripMenuItem.Name = "serviceToolStripMenuItem";
+            this.serviceToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.serviceToolStripMenuItem.Text = "Service";
+            // 
+            // runToolStripMenuItem
+            // 
+            this.runToolStripMenuItem.Enabled = false;
+            this.runToolStripMenuItem.Name = "runToolStripMenuItem";
+            this.runToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.runToolStripMenuItem.Text = "Run";
+            this.runToolStripMenuItem.Click += new System.EventHandler(this.runToolStripMenuItem_Click);
+            // 
+            // stopToolStripMenuItem
+            // 
+            this.stopToolStripMenuItem.Enabled = false;
+            this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
+            this.stopToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.stopToolStripMenuItem.Text = "Stop";
+            this.stopToolStripMenuItem.Click += new System.EventHandler(this.stopToolStripMenuItem_Click);
             // 
             // simulaciónToolStripMenuItem
             // 
@@ -216,7 +240,7 @@
             this.addToolStripMenuItem5,
             this.gridToolStripMenuItem5});
             this.clasificationToolStripMenuItem.Name = "clasificationToolStripMenuItem";
-            this.clasificationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.clasificationToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.clasificationToolStripMenuItem.Text = "Clasification";
             // 
             // addToolStripMenuItem5
@@ -239,50 +263,22 @@
             this.addToolStripMenuItem6,
             this.gridToolStripMenuItem6});
             this.selectionToolStripMenuItem.Name = "selectionToolStripMenuItem";
-            this.selectionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.selectionToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.selectionToolStripMenuItem.Text = "Selection";
             // 
             // addToolStripMenuItem6
             // 
             this.addToolStripMenuItem6.Name = "addToolStripMenuItem6";
-            this.addToolStripMenuItem6.Size = new System.Drawing.Size(152, 22);
+            this.addToolStripMenuItem6.Size = new System.Drawing.Size(96, 22);
             this.addToolStripMenuItem6.Text = "Add";
             this.addToolStripMenuItem6.Click += new System.EventHandler(this.addToolStripMenuItem6_Click);
             // 
             // gridToolStripMenuItem6
             // 
             this.gridToolStripMenuItem6.Name = "gridToolStripMenuItem6";
-            this.gridToolStripMenuItem6.Size = new System.Drawing.Size(152, 22);
+            this.gridToolStripMenuItem6.Size = new System.Drawing.Size(96, 22);
             this.gridToolStripMenuItem6.Text = "Grid";
             this.gridToolStripMenuItem6.Click += new System.EventHandler(this.gridToolStripMenuItem6_Click);
-            // 
-            // serviceToolStripMenuItem
-            // 
-            this.serviceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.runToolStripMenuItem,
-            this.stopToolStripMenuItem,
-            this.resetToolStripMenuItem});
-            this.serviceToolStripMenuItem.Name = "serviceToolStripMenuItem";
-            this.serviceToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.serviceToolStripMenuItem.Text = "Service";
-            // 
-            // runToolStripMenuItem
-            // 
-            this.runToolStripMenuItem.Name = "runToolStripMenuItem";
-            this.runToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.runToolStripMenuItem.Text = "Run";
-            // 
-            // stopToolStripMenuItem
-            // 
-            this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
-            this.stopToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.stopToolStripMenuItem.Text = "Stop";
-            // 
-            // resetToolStripMenuItem
-            // 
-            this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
-            this.resetToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.resetToolStripMenuItem.Text = "Reset";
             // 
             // logToolStripMenuItem
             // 
@@ -290,7 +286,7 @@
             this.logToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.logToolStripMenuItem.Text = "Log";
             // 
-            // runnerManagerForm
+            // PBioManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -299,8 +295,8 @@
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
-            this.Name = "runnerManagerForm";
-            this.Text = "P-Bio Management";
+            this.Name = "PBioManagerForm";
+            this.Text = "P-Bio Manager";
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             this.menuStrip.ResumeLayout(false);
@@ -330,7 +326,6 @@
         private System.Windows.Forms.ToolStripMenuItem serviceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem runToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stopToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem resetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem projectsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem4;

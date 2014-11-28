@@ -1,4 +1,4 @@
-﻿namespace runnerManager
+﻿namespace PBioManager
 {
     partial class FormSelectionMethod
     {
@@ -35,7 +35,7 @@
             this.lblArgs = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.metodoSeleccionTableAdapter1 = new runnerManager.WebappDBDataSetTableAdapters.MetodoSeleccionTableAdapter();
+            this.metodoSeleccionTableAdapter1 = new PBioManager.WebappDBDataSetTableAdapters.MetodoSeleccionTableAdapter();
             this.SuspendLayout();
             // 
             // btnSave

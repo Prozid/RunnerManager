@@ -1,4 +1,4 @@
-﻿namespace runnerManager
+﻿namespace PBioManager
 {
     partial class FormSimulation
     {
@@ -33,7 +33,7 @@
             this.lblDescription = new System.Windows.Forms.Label();
             this.cbxStateSimulation = new System.Windows.Forms.ComboBox();
             this.estadoSimulacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.webappDBDataSet = new runnerManager.WebappDBDataSet();
+            this.webappDBDataSet = new PBioManager.WebappDBDataSet();
             this.cbxSelection = new System.Windows.Forms.ComboBox();
             this.metodoSeleccionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cbxClasification = new System.Windows.Forms.ComboBox();
@@ -49,17 +49,33 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.txtUser = new System.Windows.Forms.TextBox();
-            this.estadoSimulacionTableAdapter = new runnerManager.WebappDBDataSetTableAdapters.EstadoSimulacionTableAdapter();
-            this.metodoSeleccionTableAdapter = new runnerManager.WebappDBDataSetTableAdapters.MetodoSeleccionTableAdapter();
-            this.metodoClasificacionTableAdapter = new runnerManager.WebappDBDataSetTableAdapters.MetodoClasificacionTableAdapter();
+            this.estadoSimulacionTableAdapter = new PBioManager.WebappDBDataSetTableAdapters.EstadoSimulacionTableAdapter();
+            this.metodoSeleccionTableAdapter = new PBioManager.WebappDBDataSetTableAdapters.MetodoSeleccionTableAdapter();
+            this.metodoClasificacionTableAdapter = new PBioManager.WebappDBDataSetTableAdapters.MetodoClasificacionTableAdapter();
             this.btnSave = new System.Windows.Forms.Button();
             this.lblProject = new System.Windows.Forms.Label();
             this.btnProject = new System.Windows.Forms.Button();
+            this.cbxArchivo = new System.Windows.Forms.ComboBox();
+            this.archivoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cbxCarpeta = new System.Windows.Forms.ComboBox();
+            this.carpetaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.archivoTableAdapter = new PBioManager.WebappDBDataSetTableAdapters.ArchivoTableAdapter();
+            this.carpetaTableAdapter = new PBioManager.WebappDBDataSetTableAdapters.CarpetaTableAdapter();
+            this.simulacionTableAdapter = new PBioManager.WebappDBDataSetTableAdapters.SimulacionTableAdapter();
+            this.simulacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.estadoSimulacionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.webappDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.metodoSeleccionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.metodoClasificacionBindingSource)).BeginInit();
             this.gbxMethods.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.archivoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carpetaBindingSource)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.simulacionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblName
@@ -84,10 +100,11 @@
             // 
             this.cbxStateSimulation.DataSource = this.estadoSimulacionBindingSource;
             this.cbxStateSimulation.DisplayMember = "nombre";
+            this.cbxStateSimulation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxStateSimulation.FormattingEnabled = true;
-            this.cbxStateSimulation.Location = new System.Drawing.Point(286, 41);
+            this.cbxStateSimulation.Location = new System.Drawing.Point(294, 41);
             this.cbxStateSimulation.Name = "cbxStateSimulation";
-            this.cbxStateSimulation.Size = new System.Drawing.Size(189, 21);
+            this.cbxStateSimulation.Size = new System.Drawing.Size(181, 21);
             this.cbxStateSimulation.TabIndex = 2;
             this.cbxStateSimulation.ValueMember = "idEstadoSimulacion";
             // 
@@ -105,6 +122,7 @@
             // 
             this.cbxSelection.DataSource = this.metodoSeleccionBindingSource;
             this.cbxSelection.DisplayMember = "nombre";
+            this.cbxSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxSelection.FormattingEnabled = true;
             this.cbxSelection.Location = new System.Drawing.Point(76, 56);
             this.cbxSelection.Name = "cbxSelection";
@@ -121,6 +139,7 @@
             // 
             this.cbxClasification.DataSource = this.metodoClasificacionBindingSource;
             this.cbxClasification.DisplayMember = "nombre";
+            this.cbxClasification.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxClasification.FormattingEnabled = true;
             this.cbxClasification.Location = new System.Drawing.Point(76, 29);
             this.cbxClasification.Name = "cbxClasification";
@@ -169,7 +188,7 @@
             this.gbxMethods.Controls.Add(this.label4);
             this.gbxMethods.Controls.Add(this.cbxSelection);
             this.gbxMethods.Controls.Add(this.cbxClasification);
-            this.gbxMethods.Location = new System.Drawing.Point(15, 202);
+            this.gbxMethods.Location = new System.Drawing.Point(17, 178);
             this.gbxMethods.Name = "gbxMethods";
             this.gbxMethods.Size = new System.Drawing.Size(460, 88);
             this.gbxMethods.TabIndex = 8;
@@ -244,7 +263,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(400, 296);
+            this.btnSave.Location = new System.Drawing.Point(396, 326);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 13;
@@ -270,11 +289,106 @@
             this.btnProject.Text = "Search";
             this.btnProject.UseVisualStyleBackColor = true;
             // 
+            // cbxArchivo
+            // 
+            this.cbxArchivo.DataSource = this.archivoBindingSource;
+            this.cbxArchivo.DisplayMember = "NombreArchivo";
+            this.cbxArchivo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxArchivo.FormattingEnabled = true;
+            this.cbxArchivo.Location = new System.Drawing.Point(76, 19);
+            this.cbxArchivo.Name = "cbxArchivo";
+            this.cbxArchivo.Size = new System.Drawing.Size(189, 21);
+            this.cbxArchivo.TabIndex = 16;
+            this.cbxArchivo.ValueMember = "IdArchivo";
+            // 
+            // archivoBindingSource
+            // 
+            this.archivoBindingSource.DataMember = "Archivo";
+            this.archivoBindingSource.DataSource = this.webappDBDataSet;
+            // 
+            // cbxCarpeta
+            // 
+            this.cbxCarpeta.DataSource = this.carpetaBindingSource;
+            this.cbxCarpeta.DisplayMember = "Nombre";
+            this.cbxCarpeta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxCarpeta.FormattingEnabled = true;
+            this.cbxCarpeta.Location = new System.Drawing.Point(76, 51);
+            this.cbxCarpeta.Name = "cbxCarpeta";
+            this.cbxCarpeta.Size = new System.Drawing.Size(189, 21);
+            this.cbxCarpeta.TabIndex = 17;
+            this.cbxCarpeta.ValueMember = "IdCarpeta";
+            // 
+            // carpetaBindingSource
+            // 
+            this.carpetaBindingSource.DataMember = "Carpeta";
+            this.carpetaBindingSource.DataSource = this.webappDBDataSet;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Archivo";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 54);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 13);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Carpeta";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.cbxArchivo);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.cbxCarpeta);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(17, 272);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(271, 89);
+            this.groupBox1.TabIndex = 20;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Data";
+            // 
+            // archivoTableAdapter
+            // 
+            this.archivoTableAdapter.ClearBeforeFill = true;
+            // 
+            // carpetaTableAdapter
+            // 
+            this.carpetaTableAdapter.ClearBeforeFill = true;
+            // 
+            // simulacionTableAdapter
+            // 
+            this.simulacionTableAdapter.ClearBeforeFill = true;
+            // 
+            // simulacionBindingSource
+            // 
+            this.simulacionBindingSource.DataMember = "Simulacion";
+            this.simulacionBindingSource.DataSource = this.webappDBDataSet;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(315, 326);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 21;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Visible = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // FormSimulation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(487, 331);
+            this.ClientSize = new System.Drawing.Size(489, 370);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnProject);
             this.Controls.Add(this.lblProject);
             this.Controls.Add(this.btnSave);
@@ -296,6 +410,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.metodoClasificacionBindingSource)).EndInit();
             this.gbxMethods.ResumeLayout(false);
             this.gbxMethods.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.archivoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carpetaBindingSource)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.simulacionBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,5 +448,17 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lblProject;
         private System.Windows.Forms.Button btnProject;
+        private System.Windows.Forms.ComboBox cbxArchivo;
+        private System.Windows.Forms.ComboBox cbxCarpeta;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.BindingSource archivoBindingSource;
+        private WebappDBDataSetTableAdapters.ArchivoTableAdapter archivoTableAdapter;
+        private System.Windows.Forms.BindingSource carpetaBindingSource;
+        private WebappDBDataSetTableAdapters.CarpetaTableAdapter carpetaTableAdapter;
+        private WebappDBDataSetTableAdapters.SimulacionTableAdapter simulacionTableAdapter;
+        private System.Windows.Forms.BindingSource simulacionBindingSource;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
