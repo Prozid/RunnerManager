@@ -51,6 +51,9 @@
   <PropertyGroup />
   <PropertyGroup />
   <ItemGroup>
+    <Reference Include="PBioManager, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <ExecutableExtension>.exe</ExecutableExtension>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
@@ -76,6 +79,42 @@
     </Compile>
     <Compile Include="FormClasificationMethodsGrid.Designer.cs">
       <DependentUpon>FormClasificationMethodsGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFile.Designer.cs">
+      <DependentUpon>FormFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFilesGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFilesGrid.Designer.cs">
+      <DependentUpon>FormFilesGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFolder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFolder.Designer.cs">
+      <DependentUpon>FormFolder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFoldersGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFoldersGrid.Designer.cs">
+      <DependentUpon>FormFoldersGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProject.Designer.cs">
+      <DependentUpon>FormProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProjectsGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProjectsGrid.Designer.cs">
+      <DependentUpon>FormProjectsGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSimulation.cs">
       <SubType>Form</SubType>
@@ -137,6 +176,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormClasificationMethodsGrid.resx">
       <DependentUpon>FormClasificationMethodsGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFile.resx">
+      <DependentUpon>FormFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFilesGrid.resx">
+      <DependentUpon>FormFilesGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFolder.resx">
+      <DependentUpon>FormFolder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFoldersGrid.resx">
+      <DependentUpon>FormFoldersGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProject.resx">
+      <DependentUpon>FormProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProjectsGrid.resx">
+      <DependentUpon>FormProjectsGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSimulation.resx">
       <DependentUpon>FormSimulation.cs</DependentUpon>

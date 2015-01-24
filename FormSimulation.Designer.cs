@@ -54,7 +54,6 @@
             this.metodoClasificacionTableAdapter = new PBioManager.WebappDBDataSetTableAdapters.MetodoClasificacionTableAdapter();
             this.btnSave = new System.Windows.Forms.Button();
             this.lblProject = new System.Windows.Forms.Label();
-            this.btnProject = new System.Windows.Forms.Button();
             this.cbxArchivo = new System.Windows.Forms.ComboBox();
             this.archivoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cbxCarpeta = new System.Windows.Forms.ComboBox();
@@ -67,6 +66,9 @@
             this.simulacionTableAdapter = new PBioManager.WebappDBDataSetTableAdapters.SimulacionTableAdapter();
             this.simulacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnDelete = new System.Windows.Forms.Button();
+            this.cbxProject = new System.Windows.Forms.ComboBox();
+            this.proyectoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.proyectoTableAdapter = new PBioManager.WebappDBDataSetTableAdapters.ProyectoTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.estadoSimulacionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.webappDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.metodoSeleccionBindingSource)).BeginInit();
@@ -76,6 +78,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.carpetaBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.simulacionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblName
@@ -280,15 +283,6 @@
             this.lblProject.TabIndex = 14;
             this.lblProject.Text = "Project";
             // 
-            // btnProject
-            // 
-            this.btnProject.Location = new System.Drawing.Point(294, 9);
-            this.btnProject.Name = "btnProject";
-            this.btnProject.Size = new System.Drawing.Size(75, 23);
-            this.btnProject.TabIndex = 15;
-            this.btnProject.Text = "Search";
-            this.btnProject.UseVisualStyleBackColor = true;
-            // 
             // cbxArchivo
             // 
             this.cbxArchivo.DataSource = this.archivoBindingSource;
@@ -382,14 +376,35 @@
             this.btnDelete.Visible = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // cbxProject
+            // 
+            this.cbxProject.DataSource = this.proyectoBindingSource;
+            this.cbxProject.DisplayMember = "Nombre";
+            this.cbxProject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxProject.FormattingEnabled = true;
+            this.cbxProject.Location = new System.Drawing.Point(294, 11);
+            this.cbxProject.Name = "cbxProject";
+            this.cbxProject.Size = new System.Drawing.Size(181, 21);
+            this.cbxProject.TabIndex = 22;
+            this.cbxProject.ValueMember = "IdProyecto";
+            // 
+            // proyectoBindingSource
+            // 
+            this.proyectoBindingSource.DataMember = "Proyecto";
+            this.proyectoBindingSource.DataSource = this.webappDBDataSet;
+            // 
+            // proyectoTableAdapter
+            // 
+            this.proyectoTableAdapter.ClearBeforeFill = true;
+            // 
             // FormSimulation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(489, 370);
+            this.Controls.Add(this.cbxProject);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnProject);
             this.Controls.Add(this.lblProject);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtUser);
@@ -415,6 +430,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.simulacionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -447,7 +463,6 @@
         private WebappDBDataSetTableAdapters.MetodoClasificacionTableAdapter metodoClasificacionTableAdapter;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lblProject;
-        private System.Windows.Forms.Button btnProject;
         private System.Windows.Forms.ComboBox cbxArchivo;
         private System.Windows.Forms.ComboBox cbxCarpeta;
         private System.Windows.Forms.Label label1;
@@ -460,5 +475,8 @@
         private WebappDBDataSetTableAdapters.SimulacionTableAdapter simulacionTableAdapter;
         private System.Windows.Forms.BindingSource simulacionBindingSource;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.ComboBox cbxProject;
+        private System.Windows.Forms.BindingSource proyectoBindingSource;
+        private WebappDBDataSetTableAdapters.ProyectoTableAdapter proyectoTableAdapter;
     }
 }

@@ -146,5 +146,47 @@ namespace PBioManager
             }
 
         }
+
+        private void gridToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            FormProjectsGrid pgForm = new FormProjectsGrid();
+            pgForm.MdiParent = this;
+            pgForm.Show();
+        }
+
+        private void addToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            FormProject pForm = new FormProject();
+            pForm.MdiParent = this;
+            pForm.Show();
+        }
+
+        private void gridToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            FormFoldersGrid fgForm = new FormFoldersGrid();
+            fgForm.MdiParent = this;
+            fgForm.Show();
+        }
+
+        private void addToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            FormFolder fFolder = new FormFolder();
+            fFolder.MdiParent = this;
+            fFolder.Show();
+        }
+
+        private void addToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            FormFile fFile = new FormFile();
+            fFile.MdiParent = this;
+            fFile.Show();
+        }
+
+        private void gridToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            FormFilesGrid fFilesGrid = new FormFilesGrid();
+            fFilesGrid.MdiParent = this;
+            fFilesGrid.Show();
+        }
     }
 }

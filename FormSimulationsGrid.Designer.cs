@@ -35,12 +35,6 @@
             this.webappDBDataSet = new PBioManager.WebappDBDataSet();
             this.changeState_button = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.vistaSimulacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.estadoSimulacionTableAdapter = new PBioManager.WebappDBDataSetTableAdapters.EstadoSimulacionTableAdapter();
-            this.simulacionTableAdapter = new PBioManager.WebappDBDataSetTableAdapters.SimulacionTableAdapter();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.simulacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vistaSimulacionTableAdapter = new PBioManager.WebappDBDataSetTableAdapters.VistaSimulacionTableAdapter();
             this.idSimulacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +43,12 @@
             this.metodoSeleccionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metodoClasificacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoSimulacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vistaSimulacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.estadoSimulacionTableAdapter = new PBioManager.WebappDBDataSetTableAdapters.EstadoSimulacionTableAdapter();
+            this.simulacionTableAdapter = new PBioManager.WebappDBDataSetTableAdapters.SimulacionTableAdapter();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.simulacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vistaSimulacionTableAdapter = new PBioManager.WebappDBDataSetTableAdapters.VistaSimulacionTableAdapter();
             this.SimStates_groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.estadoSimulacionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.webappDBDataSet)).BeginInit();
@@ -104,6 +104,7 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -120,38 +121,12 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(595, 325);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
-            // 
-            // vistaSimulacionBindingSource
-            // 
-            this.vistaSimulacionBindingSource.DataMember = "VistaSimulacion";
-            this.vistaSimulacionBindingSource.DataSource = this.webappDBDataSet;
-            // 
-            // estadoSimulacionTableAdapter
-            // 
-            this.estadoSimulacionTableAdapter.ClearBeforeFill = true;
-            // 
-            // simulacionTableAdapter
-            // 
-            this.simulacionTableAdapter.ClearBeforeFill = true;
-            // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataMember = "Simulacion";
-            this.bindingSource1.DataSource = this.webappDBDataSet;
-            // 
-            // simulacionBindingSource
-            // 
-            this.simulacionBindingSource.DataMember = "Simulacion";
-            this.simulacionBindingSource.DataSource = this.webappDBDataSet;
-            // 
-            // vistaSimulacionTableAdapter
-            // 
-            this.vistaSimulacionTableAdapter.ClearBeforeFill = true;
             // 
             // idSimulacionDataGridViewTextBoxColumn
             // 
@@ -209,6 +184,33 @@
             this.estadoSimulacionDataGridViewTextBoxColumn.HeaderText = "State";
             this.estadoSimulacionDataGridViewTextBoxColumn.Name = "estadoSimulacionDataGridViewTextBoxColumn";
             this.estadoSimulacionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // vistaSimulacionBindingSource
+            // 
+            this.vistaSimulacionBindingSource.DataMember = "VistaSimulacion";
+            this.vistaSimulacionBindingSource.DataSource = this.webappDBDataSet;
+            // 
+            // estadoSimulacionTableAdapter
+            // 
+            this.estadoSimulacionTableAdapter.ClearBeforeFill = true;
+            // 
+            // simulacionTableAdapter
+            // 
+            this.simulacionTableAdapter.ClearBeforeFill = true;
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataMember = "Simulacion";
+            this.bindingSource1.DataSource = this.webappDBDataSet;
+            // 
+            // simulacionBindingSource
+            // 
+            this.simulacionBindingSource.DataMember = "Simulacion";
+            this.simulacionBindingSource.DataSource = this.webappDBDataSet;
+            // 
+            // vistaSimulacionTableAdapter
+            // 
+            this.vistaSimulacionTableAdapter.ClearBeforeFill = true;
             // 
             // FormSimulationsGrid
             // 

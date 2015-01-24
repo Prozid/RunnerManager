@@ -29,6 +29,8 @@ namespace PBioManager
 
         private void FormSimulation_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'webappDBDataSet.Proyecto' Puede moverla o quitarla según sea necesario.
+            this.proyectoTableAdapter.Fill(this.webappDBDataSet.Proyecto);
             // TODO: esta línea de código carga datos en la tabla 'webappDBDataSet.Carpeta' Puede moverla o quitarla según sea necesario.
             this.carpetaTableAdapter.Fill(this.webappDBDataSet.Carpeta);
             // TODO: esta línea de código carga datos en la tabla 'webappDBDataSet.Archivo' Puede moverla o quitarla según sea necesario.
@@ -62,7 +64,6 @@ namespace PBioManager
                 cbxArchivo.SelectedValue = simulation.IdArchivo;
                 cbxCarpeta.SelectedValue = simulation.IdCarpeta;
 
-                btnProject.Enabled = false;
                 btnDelete.Visible = true;
                 //btnProject.Text = simulation.ProyectoRow.Nombre;
 
@@ -82,9 +83,10 @@ namespace PBioManager
                 && txtUser.Text != ""
                 && cbxClasification.SelectedValue != ""
                 && cbxSelection.SelectedValue != ""
-                && cbxStateSimulation.SelectedValue != "")
+                && cbxStateSimulation.SelectedValue != ""
+                && cbxProject.SelectedValue != "")
             {
-                Guid idProyecto = Guid.Parse("23f2ea76-57c3-4560-bb5e-dbd28d4f6cc7"); // #TODO Provisional
+                Guid idProyecto = (Guid)cbxProject.SelectedValue;
 
                 if (_IdSimulation.Equals(Guid.Empty))
                 {
@@ -143,25 +145,12 @@ namespace PBioManager
             {
                 WebappDBDataSet.SimulacionRow simulation = this.webappDBDataSet.Simulacion.Where(sim => sim.IdSimulacion.Equals(_IdSimulation)).Single();
 
-                this.webappDBDataSet.Simulacion.Rows.Remove(simulation);
-                this.webappDBDataSet.Simulacion.AcceptChanges();
+                simulation.BeginEdit();
+                simulation.Delete();
+                simulation.EndEdit();
 
-                /**
-                this.simulacionTableAdapter.Delete(
-                    simulation.IdSimulacion,
-                    simulation.IdProyecto,
-                    simulation.Nombre,
-                    simulation.Descripcion,
-                    simulation.FechaCreacionSimulacion,
-                    simulation.IdMetodoSeleccion,
-                    simulation.IdMetodoClasificacion,
-                    simulation.IdEstadoSimulacion,
-                    simulation.Usuario,
-                    simulation.IdLog,
-                    simulation.IdArchivo,
-                    simulation.IdCarpeta);
+                this.simulacionTableAdapter.Update(simulation);
 
-                **/
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }          
