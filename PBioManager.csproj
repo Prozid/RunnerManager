@@ -68,6 +68,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLog.Designer.cs">
+      <DependentUpon>FormLog.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormClasificationMethod.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,18 @@
     <Compile Include="FormProjectsGrid.Designer.cs">
       <DependentUpon>FormProjectsGrid.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResult.Designer.cs">
+      <DependentUpon>FormResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResultsGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResultsGrid.Designer.cs">
+      <DependentUpon>FormResultsGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSimulation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,11 +146,11 @@
     <Compile Include="FormSimulationState.Designer.cs">
       <DependentUpon>FormSimulationState.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormLog.cs">
+    <Compile Include="FormLogsGrid.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLog.Designer.cs">
-      <DependentUpon>FormLog.cs</DependentUpon>
+    <Compile Include="FormLogsGrid.Designer.cs">
+      <DependentUpon>FormLogsGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSelectionMethod.cs">
       <SubType>Form</SubType>
@@ -166,11 +184,18 @@
     <Compile Include="FormSimulationsGrid.Designer.cs">
       <DependentUpon>FormSimulationsGrid.cs</DependentUpon>
     </Compile>
+    <Compile Include="WebappDBDataSet.cs">
+      <DependentUpon>WebappDBDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="WebappDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>WebappDBDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormLog.resx">
+      <DependentUpon>FormLog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormClasificationMethod.resx">
       <DependentUpon>FormClasificationMethod.cs</DependentUpon>
     </EmbeddedResource>
@@ -195,14 +220,20 @@
     <EmbeddedResource Include="FormProjectsGrid.resx">
       <DependentUpon>FormProjectsGrid.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormResult.resx">
+      <DependentUpon>FormResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResultsGrid.resx">
+      <DependentUpon>FormResultsGrid.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSimulation.resx">
       <DependentUpon>FormSimulation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSimulationState.resx">
       <DependentUpon>FormSimulationState.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormLog.resx">
-      <DependentUpon>FormLog.cs</DependentUpon>
+    <EmbeddedResource Include="FormLogsGrid.resx">
+      <DependentUpon>FormLogsGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSelectionMethod.resx">
       <DependentUpon>FormSelectionMethod.cs</DependentUpon>

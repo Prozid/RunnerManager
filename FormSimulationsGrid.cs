@@ -44,7 +44,7 @@ namespace PBioManager
             // Iteramos entre las filas seleccionadas
             foreach (DataGridViewRow f in filas)
             {
-                Guid gRow = (Guid)f.Cells["IdSimulacion"].Value;
+                Guid gRow = (Guid)f.Cells[0].Value;
                 // Obtenemos la simulacion
                 simulation = webappDBDataSet.Simulacion.Where(sim => sim.IdSimulacion.Equals(gRow)).Single();
 

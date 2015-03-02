@@ -93,7 +93,7 @@ namespace PBioManager
         private void btnDelete_Click(object sender, EventArgs e)
         {
             DialogResult resp = MessageBox.Show(
-                   "Do you want to delete this project?",
+                   "Do you want to delete this project? This operation deletes folders, files, simulations and logs associated to this project.",
                    "Close",
                    MessageBoxButtons.YesNoCancel,
                    MessageBoxIcon.Question
@@ -102,16 +102,23 @@ namespace PBioManager
             if (resp.Equals(DialogResult.Yes))
             {
                 WebappDBDataSet.ProyectoRow project = this.webappDBDataSet.Proyecto.Where(proj => proj.IdProyecto.Equals(_IdProject)).Single();
-
-                // TODO Implementar delete en cascada
+                WebappDBDataSet.CarpetaRow folder = this.webappDBDataSet.Carpeta.Where(fold => fold.IdCarpeta.Equals(project.IdCarpeta)).Single();
+           
+                // TODO Implementar delete en cascada: Implementado en base de datos directamente.
                 project.BeginEdit();
                 project.Delete();
                 project.EndEdit();
-
                 this.proyectoTableAdapter.Update(project);
+
+                // On cascade
+                folder.BeginEdit();
+                folder.Delete();
+                folder.EndEdit();
+                this.carpetaTableAdapter.Update(folder);
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();
+               
             }
         }
     }

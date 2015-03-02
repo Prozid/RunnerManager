@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idMetodoSeleccionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.parametrosXDefectoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metodoSeleccionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.webappDBDataSet = new PBioManager.WebappDBDataSet();
             this.metodoSeleccionTableAdapter = new PBioManager.WebappDBDataSetTableAdapters.MetodoSeleccionTableAdapter();
             this.btnDiscard = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.idMetodoSeleccionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.parametrosXDefectoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.metodoSeleccionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.webappDBDataSet)).BeginInit();
@@ -59,30 +59,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(450, 204);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // idMetodoSeleccionDataGridViewTextBoxColumn
-            // 
-            this.idMetodoSeleccionDataGridViewTextBoxColumn.DataPropertyName = "IdMetodoSeleccion";
-            this.idMetodoSeleccionDataGridViewTextBoxColumn.HeaderText = "IdMetodoSeleccion";
-            this.idMetodoSeleccionDataGridViewTextBoxColumn.Name = "idMetodoSeleccionDataGridViewTextBoxColumn";
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            // 
-            // descripcionDataGridViewTextBoxColumn
-            // 
-            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion";
-            this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripcion";
-            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
-            // 
-            // parametrosXDefectoDataGridViewTextBoxColumn
-            // 
-            this.parametrosXDefectoDataGridViewTextBoxColumn.DataPropertyName = "ParametrosXDefecto";
-            this.parametrosXDefectoDataGridViewTextBoxColumn.HeaderText = "ParametrosXDefecto";
-            this.parametrosXDefectoDataGridViewTextBoxColumn.Name = "parametrosXDefectoDataGridViewTextBoxColumn";
             // 
             // metodoSeleccionBindingSource
             // 
@@ -118,6 +94,31 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // idMetodoSeleccionDataGridViewTextBoxColumn
+            // 
+            this.idMetodoSeleccionDataGridViewTextBoxColumn.DataPropertyName = "IdMetodoSeleccion";
+            this.idMetodoSeleccionDataGridViewTextBoxColumn.HeaderText = "IdMetodoSeleccion";
+            this.idMetodoSeleccionDataGridViewTextBoxColumn.Name = "idMetodoSeleccionDataGridViewTextBoxColumn";
+            this.idMetodoSeleccionDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            // 
+            // descripcionDataGridViewTextBoxColumn
+            // 
+            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion";
+            this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripcion";
+            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
+            // 
+            // parametrosXDefectoDataGridViewTextBoxColumn
+            // 
+            this.parametrosXDefectoDataGridViewTextBoxColumn.DataPropertyName = "ParametrosXDefecto";
+            this.parametrosXDefectoDataGridViewTextBoxColumn.HeaderText = "ParametrosXDefecto";
+            this.parametrosXDefectoDataGridViewTextBoxColumn.Name = "parametrosXDefectoDataGridViewTextBoxColumn";
+            // 
             // FormSelectionMethodsGrid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -143,12 +144,12 @@
         private WebappDBDataSet webappDBDataSet;
         private System.Windows.Forms.BindingSource metodoSeleccionBindingSource;
         private WebappDBDataSetTableAdapters.MetodoSeleccionTableAdapter metodoSeleccionTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn parametrosDefectoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnDiscard;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.DataGridViewTextBoxColumn idMetodoSeleccionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn parametrosDefectoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn parametrosXDefectoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnDiscard;
-        private System.Windows.Forms.Button btnSave;
     }
 }

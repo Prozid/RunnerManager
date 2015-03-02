@@ -99,6 +99,7 @@
             this.idEstadoSimulacionDataGridViewTextBoxColumn.DataPropertyName = "IdEstadoSimulacion";
             this.idEstadoSimulacionDataGridViewTextBoxColumn.HeaderText = "IdEstadoSimulacion";
             this.idEstadoSimulacionDataGridViewTextBoxColumn.Name = "idEstadoSimulacionDataGridViewTextBoxColumn";
+            this.idEstadoSimulacionDataGridViewTextBoxColumn.Visible = false;
             // 
             // nombreDataGridViewTextBoxColumn
             // 
@@ -127,7 +128,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dataGridView1);
             this.Name = "FormSimulationStatesGrid";
-            this.Text = "FormSimulationStates";
+            this.Text = "Simulation States";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormSimulationStates_FormClosing);
             this.Load += new System.EventHandler(this.FormSimulationStates_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -143,11 +144,11 @@
         private WebappDBDataSet webappDBDataSet;
         private System.Windows.Forms.BindingSource estadoSimulacionBindingSource;
         private WebappDBDataSetTableAdapters.EstadoSimulacionTableAdapter estadoSimulacionTableAdapter;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnDiscard;
         private System.Windows.Forms.DataGridViewTextBoxColumn idEstadoSimulacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreCortoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnDiscard;
     }
 }

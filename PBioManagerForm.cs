@@ -139,9 +139,14 @@ namespace PBioManager
                 {
                     sc.Stop();
                 }
-                catch
+                catch(Exception ex)
                 {
-                  
+                    DialogResult resp = MessageBox.Show(
+                       ex.Message,
+                       "Can not stop the service",
+                       MessageBoxButtons.OK,
+                       MessageBoxIcon.Error
+                    );                  
                 }
             }
 
@@ -187,6 +192,20 @@ namespace PBioManager
             FormFilesGrid fFilesGrid = new FormFilesGrid();
             fFilesGrid.MdiParent = this;
             fFilesGrid.Show();
+        }
+
+        private void logToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormLogsGrid fLogsGrid = new FormLogsGrid();
+            fLogsGrid.MdiParent = this;
+            fLogsGrid.Show();
+        }
+
+        private void resultsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormResultsGrid fResultsGrid = new FormResultsGrid();
+            fResultsGrid.MdiParent = this;
+            fResultsGrid.Show();
         }
     }
 }

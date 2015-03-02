@@ -45,13 +45,15 @@ namespace PBioManager
             {
                 WebappDBDataSet.CarpetaRow folder = this.webappDBDataSet.Carpeta.Where(f => f.IdCarpeta.Equals(_IdFolder)).Single();
 
+                int childrens = this.webappDBDataSet.Carpeta.Where(f => !f.IsIdCarpetaPadreNull() && f.IdCarpetaPadre.Equals(folder.IdCarpeta)).Count();
                 int files = this.webappDBDataSet.Archivo.Where(s => s.IdCarpeta.Equals(folder.IdCarpeta)).Count();
                 int simulations = this.webappDBDataSet.Simulacion.Where(s => s.IdCarpeta.Equals(folder.IdCarpeta)).Count();
                 //TODO Testear que no falle si intento borrar una carpeta que contenga archivos o alguna simulación
-                if (files > 0)
+
+                if (childrens > 0 || files > 0)
                 {
                     DialogResult alert = MessageBox.Show(
-                      "There are files in this folder. Please delete them before delete the folder.",
+                      "There are childrens in this folder. Please delete them before delete the folder.",
                       "Close",
                       MessageBoxButtons.OK,
                       MessageBoxIcon.Stop
@@ -116,7 +118,7 @@ namespace PBioManager
                     newFolder.Insert(
                         _IdFolder,
                         txtName.Text,
-                        (Guid)cbxRootFolder.SelectedValue,
+                        cbxRootFolder.SelectedValue == null ? (Guid?)null : (Guid)cbxRootFolder.SelectedValue,
                         txtUser.Text,
                         DateTime.Now                        
                     );
@@ -127,8 +129,8 @@ namespace PBioManager
 
                     folder.Nombre = txtName.Text;
                     folder.Usuario = txtUser.Text;
-                    // TODO comprobar que no sea la carpeta raíz de un proyecto
-                    folder.IdCarpetaPadre = (Guid)cbxRootFolder.SelectedValue;
+                    if (cbxRootFolder.SelectedValue != null)
+                        folder.IdCarpetaPadre = (Guid)cbxRootFolder.SelectedValue;
 
                     this.carpetaTableAdapter.Update(folder);
                 }

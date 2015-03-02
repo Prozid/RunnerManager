@@ -196,6 +196,7 @@
             this.resultsToolStripMenuItem.Name = "resultsToolStripMenuItem";
             this.resultsToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.resultsToolStripMenuItem.Text = "Results";
+            this.resultsToolStripMenuItem.Click += new System.EventHandler(this.resultsToolStripMenuItem_Click);
             // 
             // projectsToolStripMenuItem
             // 
@@ -255,14 +256,14 @@
             // addToolStripMenuItem3
             // 
             this.addToolStripMenuItem3.Name = "addToolStripMenuItem3";
-            this.addToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+            this.addToolStripMenuItem3.Size = new System.Drawing.Size(96, 22);
             this.addToolStripMenuItem3.Text = "Add";
             this.addToolStripMenuItem3.Click += new System.EventHandler(this.addToolStripMenuItem3_Click);
             // 
             // gridToolStripMenuItem3
             // 
             this.gridToolStripMenuItem3.Name = "gridToolStripMenuItem3";
-            this.gridToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+            this.gridToolStripMenuItem3.Size = new System.Drawing.Size(96, 22);
             this.gridToolStripMenuItem3.Text = "Grid";
             this.gridToolStripMenuItem3.Click += new System.EventHandler(this.gridToolStripMenuItem3_Click);
             // 
@@ -349,6 +350,7 @@
             this.logToolStripMenuItem.Name = "logToolStripMenuItem";
             this.logToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.logToolStripMenuItem.Text = "Log";
+            this.logToolStripMenuItem.Click += new System.EventHandler(this.logToolStripMenuItem_Click);
             // 
             // PBioManagerForm
             // 
@@ -361,6 +363,7 @@
             this.MainMenuStrip = this.menuStrip;
             this.Name = "PBioManagerForm";
             this.Text = "P-Bio Manager";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             this.menuStrip.ResumeLayout(false);
