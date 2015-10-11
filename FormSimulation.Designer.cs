@@ -69,6 +69,7 @@
             this.cbxProject = new System.Windows.Forms.ComboBox();
             this.proyectoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.proyectoTableAdapter = new PBioManager.WebappDBDataSetTableAdapters.ProyectoTableAdapter();
+            this.btnLogs = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.estadoSimulacionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.webappDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.metodoSeleccionBindingSource)).BeginInit();
@@ -266,7 +267,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(396, 326);
+            this.btnSave.Location = new System.Drawing.Point(396, 379);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 13;
@@ -367,7 +368,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(315, 326);
+            this.btnDelete.Location = new System.Drawing.Point(315, 379);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 21;
@@ -397,11 +398,23 @@
             // 
             this.proyectoTableAdapter.ClearBeforeFill = true;
             // 
+            // btnLogs
+            // 
+            this.btnLogs.Enabled = false;
+            this.btnLogs.Location = new System.Drawing.Point(11, 379);
+            this.btnLogs.Name = "btnLogs";
+            this.btnLogs.Size = new System.Drawing.Size(75, 23);
+            this.btnLogs.TabIndex = 24;
+            this.btnLogs.Text = "Logs";
+            this.btnLogs.UseVisualStyleBackColor = true;
+            this.btnLogs.Click += new System.EventHandler(this.btnLogs_Click);
+            // 
             // FormSimulation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 370);
+            this.ClientSize = new System.Drawing.Size(489, 414);
+            this.Controls.Add(this.btnLogs);
             this.Controls.Add(this.cbxProject);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.groupBox1);
@@ -478,5 +491,6 @@
         private System.Windows.Forms.ComboBox cbxProject;
         private System.Windows.Forms.BindingSource proyectoBindingSource;
         private WebappDBDataSetTableAdapters.ProyectoTableAdapter proyectoTableAdapter;
+        private System.Windows.Forms.Button btnLogs;
     }
 }

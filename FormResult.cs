@@ -37,7 +37,7 @@ namespace PBioManager
             specificity_StdTextBox.Text = result.Specificity_Std.ToString();
             fechaLanzamientoDateTimePicker.Value = result.FechaLanzamiento;
             fechaFinalizacionDateTimePicker.Value = result.FechaFinalizacion;
-            duracionDateTimePicker.Value = result.Duracion;
+            duracionTextBox.Text = result.IsDuracionNull()? "": result.Duracion.ToShortTimeString();
             accuracyXGenesTextBox.Text = result.AccuracyXGenes;
             medianaTextBox.Text = result.Mediana.ToString();
             nombreGenesSolucionTextBox.Text = result.NombreGenesSolucion;

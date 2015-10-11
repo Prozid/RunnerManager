@@ -28,14 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblText = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblLabelDate = new System.Windows.Forms.Label();
             this.txtText = new System.Windows.Forms.TextBox();
-            this.webappDBDataSet = new PBioManager.WebappDBDataSet();
             this.btnClose = new System.Windows.Forms.Button();
+            this.webappDBDataSet = new PBioManager.WebappDBDataSet();
             this.logTableAdapter = new PBioManager.WebappDBDataSetTableAdapters.LogTableAdapter();
+            this.logBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.webappDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblText
@@ -71,13 +74,9 @@
             this.txtText.Location = new System.Drawing.Point(11, 58);
             this.txtText.Multiline = true;
             this.txtText.Name = "txtText";
+            this.txtText.ReadOnly = true;
             this.txtText.Size = new System.Drawing.Size(260, 163);
             this.txtText.TabIndex = 7;
-            // 
-            // webappDBDataSet
-            // 
-            this.webappDBDataSet.DataSetName = "WebappDBDataSet";
-            this.webappDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnClose
             // 
@@ -89,9 +88,19 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // webappDBDataSet
+            // 
+            this.webappDBDataSet.DataSetName = "WebappDBDataSet";
+            this.webappDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // logTableAdapter
             // 
             this.logTableAdapter.ClearBeforeFill = true;
+            // 
+            // logBindingSource
+            // 
+            this.logBindingSource.DataMember = "Log";
+            this.logBindingSource.DataSource = this.webappDBDataSet;
             // 
             // FormLog
             // 
@@ -107,6 +116,7 @@
             this.Text = "Project";
             this.Load += new System.EventHandler(this.FormLog_Load);
             ((System.ComponentModel.ISupportInitialize)(this.webappDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -121,5 +131,6 @@
         private WebappDBDataSet webappDBDataSet;
         private System.Windows.Forms.Button btnClose;
         private WebappDBDataSetTableAdapters.LogTableAdapter logTableAdapter;
+        private System.Windows.Forms.BindingSource logBindingSource;
     }
 }

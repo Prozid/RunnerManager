@@ -27,6 +27,7 @@ namespace PBioManager
 
         private void FormLog_Load(object sender, EventArgs e)
         {
+            this.logTableAdapter.Fill(this.webappDBDataSet.Log);
             if (!_IdLog.Equals(Guid.Empty))
             {
                 WebappDBDataSet.LogRow log = this.webappDBDataSet.Log.Where(l => l.IdLog.Equals(_IdLog)).Single();

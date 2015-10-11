@@ -67,6 +67,7 @@ namespace PBioManager
                 btnDelete.Visible = true;
                 //btnProject.Text = simulation.ProyectoRow.Nombre;
 
+                if (simulation.IdLog != null) btnLogs.Enabled = true;
             }
         }
 
@@ -154,6 +155,23 @@ namespace PBioManager
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }          
+        }
+
+        private void btnResults_Click(object sender, EventArgs e)
+        {
+            //WebappDBDataSet.SimulacionRow simulation = this.webappDBDataSet.Simulacion.Where(sim => sim.IdSimulacion.Equals(_IdSimulation)).Single();
+            WebappDBDataSet.ResultadoRow result = this.webappDBDataSet.Resultado.Where(res => res.IdSimulacion.Equals(_IdSimulation)).Single();
+
+            FormResult fResult = new FormResult(result.IdResultado);
+            fResult.Show();
+        }
+
+        private void btnLogs_Click(object sender, EventArgs e)
+        {
+            WebappDBDataSet.SimulacionRow simulation = this.webappDBDataSet.Simulacion.Where(sim => sim.IdSimulacion.Equals(_IdSimulation)).Single();
+
+            FormLog fLog = new FormLog(simulation.IdLog);
+            fLog.Show();
         }
     }
 

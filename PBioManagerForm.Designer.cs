@@ -44,7 +44,6 @@
             this.simulaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.resultsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.projectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.gridToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,7 +63,7 @@
             this.selectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.gridToolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.logToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resultsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -130,13 +129,12 @@
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.serviceToolStripMenuItem,
             this.simulaciónToolStripMenuItem,
-            this.resultsToolStripMenuItem,
             this.projectsToolStripMenuItem,
             this.foldersToolStripMenuItem,
             this.filesToolStripMenuItem,
             this.simulationsStatesToolStripMenuItem,
             this.methodsToolStripMenuItem,
-            this.logToolStripMenuItem});
+            this.resultsToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(1148, 24);
@@ -190,13 +188,6 @@
             this.gridToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
             this.gridToolStripMenuItem.Text = "Grid";
             this.gridToolStripMenuItem.Click += new System.EventHandler(this.gridToolStripMenuItem_Click);
-            // 
-            // resultsToolStripMenuItem
-            // 
-            this.resultsToolStripMenuItem.Name = "resultsToolStripMenuItem";
-            this.resultsToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.resultsToolStripMenuItem.Text = "Results";
-            this.resultsToolStripMenuItem.Click += new System.EventHandler(this.resultsToolStripMenuItem_Click);
             // 
             // projectsToolStripMenuItem
             // 
@@ -345,12 +336,12 @@
             this.gridToolStripMenuItem6.Text = "Grid";
             this.gridToolStripMenuItem6.Click += new System.EventHandler(this.gridToolStripMenuItem6_Click);
             // 
-            // logToolStripMenuItem
+            // resultsToolStripMenuItem
             // 
-            this.logToolStripMenuItem.Name = "logToolStripMenuItem";
-            this.logToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-            this.logToolStripMenuItem.Text = "Log";
-            this.logToolStripMenuItem.Click += new System.EventHandler(this.logToolStripMenuItem_Click);
+            this.resultsToolStripMenuItem.Name = "resultsToolStripMenuItem";
+            this.resultsToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.resultsToolStripMenuItem.Text = "Results";
+            this.resultsToolStripMenuItem.Click += new System.EventHandler(this.resultsToolStripMenuItem_Click);
             // 
             // PBioManagerForm
             // 
@@ -393,7 +384,6 @@
         private System.Windows.Forms.ToolStripMenuItem serviceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem runToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stopToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem logToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem projectsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem gridToolStripMenuItem4;
@@ -404,13 +394,13 @@
         private System.Windows.Forms.ToolStripMenuItem selectionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem6;
         private System.Windows.Forms.ToolStripMenuItem gridToolStripMenuItem6;
-        private System.Windows.Forms.ToolStripMenuItem resultsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem foldersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem gridToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem filesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem gridToolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem resultsToolStripMenuItem;
 
     }
 }

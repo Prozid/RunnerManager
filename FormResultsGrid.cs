@@ -16,6 +16,12 @@ namespace PBioManager
             InitializeComponent();
         }
 
+        private void FormResults_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'webappDBDataSet.Proyecto' Puede moverla o quitarla según sea necesario.
+            this.resultadoTableAdapter.Fill(this.webappDBDataSet.Resultado);
+        }
+
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Guid idResult = (Guid)dataGridViewResults.Rows[e.RowIndex].Cells[0].Value;

@@ -207,5 +207,6 @@ namespace PBioManager
             fResultsGrid.MdiParent = this;
             fResultsGrid.Show();
         }
+
     }
 }

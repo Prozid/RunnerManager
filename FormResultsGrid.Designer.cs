@@ -29,10 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.webappDBDataSet = new PBioManager.WebappDBDataSet();
-            this.resultadoTableAdapter = new PBioManager.WebappDBDataSetTableAdapters.ResultadoTableAdapter();
             this.dataGridViewResults = new System.Windows.Forms.DataGridView();
-            this.resultadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idResultadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numGenesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreGenesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,19 +48,13 @@
             this.idSimulacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreGenesSolucionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idGenesSolucionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.webappDBDataSet)).BeginInit();
+            this.resultadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.webappDBDataSet = new PBioManager.WebappDBDataSet();
+            this.resultadoTableAdapter = new PBioManager.WebappDBDataSetTableAdapters.ResultadoTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResults)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultadoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webappDBDataSet)).BeginInit();
             this.SuspendLayout();
-            // 
-            // webappDBDataSet
-            // 
-            this.webappDBDataSet.DataSetName = "WebappDBDataSet";
-            this.webappDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // resultadoTableAdapter
-            // 
-            this.resultadoTableAdapter.ClearBeforeFill = true;
             // 
             // dataGridViewResults
             // 
@@ -98,11 +89,6 @@
             this.dataGridViewResults.Size = new System.Drawing.Size(1255, 344);
             this.dataGridViewResults.TabIndex = 0;
             this.dataGridViewResults.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
-            // 
-            // resultadoBindingSource
-            // 
-            this.resultadoBindingSource.DataMember = "Resultado";
-            this.resultadoBindingSource.DataSource = this.webappDBDataSet;
             // 
             // idResultadoDataGridViewTextBoxColumn
             // 
@@ -231,6 +217,21 @@
             this.idGenesSolucionDataGridViewTextBoxColumn.Name = "idGenesSolucionDataGridViewTextBoxColumn";
             this.idGenesSolucionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // resultadoBindingSource
+            // 
+            this.resultadoBindingSource.AllowNew = false;
+            this.resultadoBindingSource.DataMember = "Resultado";
+            this.resultadoBindingSource.DataSource = this.webappDBDataSet;
+            // 
+            // webappDBDataSet
+            // 
+            this.webappDBDataSet.DataSetName = "WebappDBDataSet";
+            this.webappDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // resultadoTableAdapter
+            // 
+            this.resultadoTableAdapter.ClearBeforeFill = true;
+            // 
             // FormResultsGrid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -239,9 +240,10 @@
             this.Controls.Add(this.dataGridViewResults);
             this.Name = "FormResultsGrid";
             this.Text = "Results";
-            ((System.ComponentModel.ISupportInitialize)(this.webappDBDataSet)).EndInit();
+            this.Load += new System.EventHandler(this.FormResults_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResults)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultadoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webappDBDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
