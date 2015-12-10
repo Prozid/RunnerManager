@@ -243,7 +243,9 @@
     <EmbeddedResource Include="FormSimulationsGrid.resx">
       <DependentUpon>FormSimulationsGrid.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <EmbeddedResource Include="FormSimulationStatesGrid.resx">
       <DependentUpon>FormSimulationStatesGrid.cs</DependentUpon>
     </EmbeddedResource>
