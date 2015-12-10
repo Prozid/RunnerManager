@@ -23,5 +23,4 @@ C:\Users\pbio\Documents\GitHub\RunnerManager\obj\x86\Debug\PBioManager.Propertie
 C:\Users\pbio\Documents\GitHub\RunnerManager\obj\x86\Debug\PBioManager.csproj.GenerateResource.Cache
 C:\Users\pbio\Documents\GitHub\RunnerManager\obj\x86\Debug\PBioManager.exe
 C:\Users\pbio\Documents\GitHub\RunnerManager\obj\x86\Debug\PBioManager.pdb
-C:\Users\pbio\Documents\GitHub\RunnerManager\obj\x86\Debug\PBioManager.csprojResolveAssemblyReference.cache
 C:\Users\pbio\Documents\GitHub\RunnerManager\bin\Debug\PBioManager.exe
